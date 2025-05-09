@@ -64,7 +64,7 @@ const Sidebar = () => {
                 <li key={item.name}>
                   <NavLink
                     to={item.path}
-                    cclassName={({ isActive }) => 
+                    className={({ isActive }) => 
                       flex items-center p-3 rounded-full transition-all duration-200
                       ${isActive ? 'bg-fear-red text-white' : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'}
                     }
