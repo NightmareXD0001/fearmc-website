@@ -1,5 +1,5 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
 import BlogCard from '@/components/ui/BlogCard';
