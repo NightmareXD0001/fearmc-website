@@ -46,9 +46,11 @@ const Index = () => {
                     className="h-16 mb-4" 
                   />
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-                  <span className="minecraft-text text-fear-red block mb-4">YOUR NEXT OBSESSION STARTS HERE!</span>
-                </h2>
+<h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white whitespace-nowrap overflow-hidden text-ellipsis">
+  <span className="minecraft-text text-fear-red">
+    YOUR NEXT OBSESSION STARTS HERE!
+  </span>
+</h2>
                 
                 <p className="text-gray-300 mb-8 md:text-lg">
 Welcome to FearMC — a high-stakes, high-reward Minecraft server built for the bold. Whether you're dominating PvP arenas, mastering custom game modes, or just vibing with our ever-growing community, every moment here is unforgettable.
