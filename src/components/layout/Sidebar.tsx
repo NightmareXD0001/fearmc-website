@@ -29,6 +29,7 @@ const Sidebar = () => {
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "Blog", path: "/blog", icon: <BookOpen size={20} /> },
     { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
+    { name: "Store", path: "/store", icon: <BadgeAlert size={20} />, forceActive: true },
   ];
 
   return (
@@ -63,10 +64,13 @@ const Sidebar = () => {
                 <li key={item.name}>
                   <NavLink
                     to={item.path}
-                    className={({ isActive }) => 
-                      `flex items-center p-3 rounded-full transition-all duration-200
-                      ${isActive ? 'bg-fear-red text-white' : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'}`
-                    }
+                    className={({ isActive }) =>
+  `flex items-center p-3 rounded-full transition-all duration-200 ${
+    item.forceActive || isActive
+      ? 'bg-fear-red text-white'
+      : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'
+  }`
+}
                     onClick={() => isMobile && setIsMobileOpen(false)}
                   >
                     <span className="mr-3">{item.icon}</span>
