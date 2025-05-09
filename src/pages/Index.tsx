@@ -39,6 +39,13 @@ const Index = () => {
           <div className="glass-card rounded-2xl overflow-hidden">
             <div className="bg-gradient-to-r from-fear-black to-fear-darkgray p-8 md:p-12 flex flex-col items-center text-center">
               <div className="max-w-3xl">
+                <div className="flex items-center justify-center mb-6">
+                  <img 
+                    src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                    alt="FearMC Logo" 
+                    className="h-16 mb-4" 
+                  />
+                </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
                   <span className="minecraft-text text-fear-red block mb-2">HERE TO PLAY</span>
                   MINECRAFT?
@@ -66,7 +73,14 @@ const Index = () => {
             {/* About Section */}
             <section>
               <div className="glass-card rounded-xl p-6">
-                <h2 className="text-2xl font-bold mb-4 text-white">About <span className="text-fear-red">Fear</span>MC</h2>
+                <div className="flex items-center mb-4">
+                  <img 
+                    src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                    alt="FearMC Logo" 
+                    className="h-8 mr-3" 
+                  />
+                  <h2 className="text-2xl font-bold text-white">About <span className="text-fear-red">Fear</span>MC</h2>
+                </div>
                 <p className="text-gray-300 mb-4">
                   FearMC is a premier Minecraft server offering unique game modes and an engaging community experience. 
                   Our server features custom-built maps, balanced gameplay, and regular events to keep things exciting!
@@ -102,7 +116,12 @@ const Index = () => {
             
             {/* Server Stats Card */}
             <div className="glass-card rounded-xl overflow-hidden">
-              <div className="bg-fear-darkgray p-4">
+              <div className="bg-fear-darkgray p-4 flex items-center">
+                <img 
+                  src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                  alt="FearMC Logo" 
+                  className="h-5 mr-2" 
+                />
                 <h3 className="text-white font-bold text-lg">Server Statistics</h3>
               </div>
               

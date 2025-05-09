@@ -46,21 +46,9 @@ export const getServerStatus = async (): Promise<ServerStatus> => {
 
 export const getDiscordStatus = async (): Promise<DiscordStatus> => {
   try {
-    // Use Discord Widget API to get member count
-    // For demo purposes, we'll return mock data as the discord ID is placeholder
-    // In production, this would be: `https://discord.com/api/guilds/${DISCORD_ID}/widget.json`
-    
-    // Mock data for demonstration
-    return {
-      presence_count: 158,
-      members: []
-    };
-    
-    /*
     const response = await fetch(`https://discord.com/api/guilds/${DISCORD_ID}/widget.json`);
     const data = await response.json();
     return data;
-    */
   } catch (error) {
     console.error('Error fetching Discord status:', error);
     return {

@@ -19,6 +19,11 @@ const Header = ({ serverStatus }: HeaderProps) => {
           {/* Logo - visible on all screens */}
           <div className="flex-shrink-0 md:w-64 flex items-center">
             <Link to="/" className="flex items-center">
+              <img 
+                src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                alt="FearMC Logo" 
+                className="h-8 mr-2" 
+              />
               <span className="text-xl font-bold">
                 <span className="text-fear-red text-glow">Fear</span>MC
               </span>
