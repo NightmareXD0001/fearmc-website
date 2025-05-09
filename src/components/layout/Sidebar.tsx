@@ -52,7 +52,7 @@ const Sidebar = () => {
           {/* Logo */}
           <div className="mb-8 px-2">
             <h1 className="text-2xl font-bold text-white text-center">
-              <span className="text-fear-red text-glow">Fear</span>MC
+              <span className="text-fear-red text-glow">FearMC</span>
             </h1>
           </div>
 
