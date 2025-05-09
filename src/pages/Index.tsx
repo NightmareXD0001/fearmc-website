@@ -43,7 +43,7 @@ const Index = () => {
                   <img 
                     src="/logo.png" 
                     alt="FearMC Logo" 
-                    className="h-32 mb-4" 
+                    className="h-48 mb-4" 
                   />
                 </div>
                 <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-fear-red minecraft-text">
