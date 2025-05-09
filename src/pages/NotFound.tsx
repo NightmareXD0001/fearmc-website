@@ -16,7 +16,7 @@ const NotFound = () => {
           to="/"
           className="px-6 py-2.5 rounded-full bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-colors inline-block"
         >
-          Return to Spawn
+          Return to Home
         </Link>
       </div>
     </div>
