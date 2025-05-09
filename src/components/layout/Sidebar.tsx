@@ -63,13 +63,16 @@ const Sidebar = () => {
               {navItems.map((item) => (
                 <li key={item.name}>
                   <NavLink
-                    to={item.path}
-                    className={({ isActive }) => 
-                      flex items-center p-3 rounded-full transition-all duration-200
-                      ${isActive ? 'bg-fear-red text-white' : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'}
-                    }
-                    onClick={() => isMobile && setIsMobileOpen(false)}
-                  >
+  to={item.path}
+  className={({ isActive }) =>
+    `flex items-center p-3 rounded-full transition-all duration-200 ${
+      isActive
+        ? 'bg-fear-red text-white'
+        : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'
+    }`
+  }
+  onClick={() => isMobile && setIsMobileOpen(false)}
+>
                     <span className="mr-3">{item.icon}</span>
                     <span>{item.name}</span>
                   </NavLink>
