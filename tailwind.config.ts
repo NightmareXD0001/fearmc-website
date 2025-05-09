@@ -26,7 +26,7 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         fear: {
-          red: "#e11d48",
+          red: "#fb3c3c",
           black: "#0f0f0f",
           darkgray: "#1f1f1f",
           gray: "#403E43",
@@ -95,8 +95,8 @@ export default {
           "50%": { transform: "translateY(-10px)" },
         },
         "glow": {
-          "0%, 100%": { boxShadow: "0 0 5px rgba(225, 29, 72, 0.2)" },
-          "50%": { boxShadow: "0 0 20px rgba(225, 29, 72, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 5px rgba(225, 29, 29, 0.2)" },
+          "50%": { boxShadow: "0 0 20px rgba(225, 29, 29, 0.6)" },
         },
         "pulse-light": {
           "0%, 100%": { opacity: "0.6" },
