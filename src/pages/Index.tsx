@@ -46,8 +46,8 @@ const Index = () => {
                     className="h-16 mb-4" 
                   />
                 </div>
-                <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-fear-red minecraft-text">
-                  <span className="minecraft-text text-fear-red block mb-4">YOUR NEXT OBSESSION </span>STARTS HERE!
+                <h2 className="text-2xl md:text-3xl lg:text-5xl font-bold mb-6 text-fear-red minecraft-text">
+                  <span className="minecraft-text text-fear-red block mb-4">YOUR NEXT OBSESSION</span>STARTS HERE!
                 </h2>
      
                 <p className="text-gray-300 mb-8 md:text-lg">
