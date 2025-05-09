@@ -4,6 +4,12 @@ import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
 import { serverRules } from '@/utils/rulesConfig';
 import { ChevronDown, ChevronUp } from 'lucide-react';
+import { 
+  Accordion,
+  AccordionItem,
+  AccordionTrigger,
+  AccordionContent
+} from '@/components/ui/accordion';
 
 const Rules = () => {
   // Group rules by category
@@ -16,7 +22,6 @@ const Rules = () => {
   }, {} as Record<string, typeof serverRules>);
 
   const categories = Object.keys(rulesByCategory);
-  const [openCategory, setOpenCategory] = useState<string | null>(categories[0] || null);
 
   return (
     <PageLayout>
@@ -31,40 +36,32 @@ const Rules = () => {
             </p>
           </div>
           
-          <div className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-4">
             {categories.map((category) => (
-              <div key={category} className="glass-card rounded-xl overflow-hidden">
-                {/* Category Header - Clickable */}
-                <button
-                  className="w-full p-4 flex justify-between items-center bg-fear-darkgray/70 hover:bg-fear-darkgray/90 transition-colors"
-                  onClick={() => setOpenCategory(openCategory === category ? null : category)}
-                >
-                  <h2 className="text-xl font-bold text-white">{category}</h2>
-                  {openCategory === category ? (
-                    <ChevronUp className="h-5 w-5 text-gray-300" />
-                  ) : (
-                    <ChevronDown className="h-5 w-5 text-gray-300" />
-                  )}
-                </button>
+              <AccordionItem 
+                key={category} 
+                value={category}
+                className="glass-card rounded-xl overflow-hidden border-none"
+              >
+                <AccordionTrigger className="p-4 bg-fear-darkgray/70 hover:bg-fear-darkgray/90 transition-colors text-xl font-bold text-white">
+                  {category}
+                </AccordionTrigger>
                 
-                {/* Rules */}
-                {openCategory === category && (
-                  <div className="p-5 space-y-4 animate-accordion-down">
-                    {rulesByCategory[category].map((rule) => (
-                      <div key={rule.id} className="border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
-                        <h3 className="font-medium text-white mb-2">
-                          {rule.id}. {rule.title}
-                        </h3>
-                        <p className="text-gray-300 text-sm">
-                          {rule.description}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+                <AccordionContent className="p-5 space-y-4 animate-accordion-down">
+                  {rulesByCategory[category].map((rule, index) => (
+                    <div key={rule.id} className="border-b border-white/5 pb-4 last:border-b-0 last:pb-0">
+                      <h3 className="font-medium text-white mb-2">
+                        {index + 1}. {rule.title}
+                      </h3>
+                      <p className="text-gray-300 text-sm">
+                        {rule.description}
+                      </p>
+                    </div>
+                  ))}
+                </AccordionContent>
+              </AccordionItem>
             ))}
-          </div>
+          </Accordion>
           
           <div className="mt-8 glass-card rounded-xl p-6">
             <h2 className="text-xl font-bold mb-4 text-white">Rule Enforcement</h2>

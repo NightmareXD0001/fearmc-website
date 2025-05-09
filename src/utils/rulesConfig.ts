@@ -48,5 +48,18 @@ export const serverRules: Rule[] = [
     category: "General Rules",
     title: "Report Issues",
     description: "Report any bugs, glitches, or rule-breaking behavior to staff members instead of exploiting them."
+  },
+  // Example of new category
+  {
+    id: 8,
+    category: "Allowed Mods",
+    title: "Performance Mods",
+    description: "Mods that only improve client performance without providing gameplay advantages are allowed. Examples include Optifine, Sodium, and other FPS boosting mods."
+  },
+  {
+    id: 9,
+    category: "Allowed Mods",
+    title: "Cosmetic Mods",
+    description: "Mods that only change visual aspects without providing gameplay advantages are allowed. Examples include texture packs, shader packs, and custom skins."
   }
 ];

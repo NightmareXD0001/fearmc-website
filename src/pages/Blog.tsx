@@ -7,6 +7,11 @@ import { blogPosts } from '@/utils/blogPosts';
 
 const Blog = () => {
   const [serverStatus, setServerStatus] = useState(null);
+  
+  // Sort blog posts by id in descending order (highest/newest first)
+  const sortedPosts = [...blogPosts].sort((a, b) => 
+    parseInt(b.id) - parseInt(a.id)
+  );
 
   return (
     <PageLayout>
@@ -21,8 +26,8 @@ const Blog = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts && blogPosts.length > 0 ? (
-            blogPosts.map((post) => (
+          {sortedPosts && sortedPosts.length > 0 ? (
+            sortedPosts.map((post) => (
               <BlogCard key={post.id} post={post} />
             ))
           ) : (
