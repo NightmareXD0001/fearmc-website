@@ -29,7 +29,7 @@ const JoinServerModal = ({ isOpen, onClose }: JoinServerModalProps) => {
             {/* Header with logo */}
             <div className="bg-fear-red p-4 relative flex items-center justify-center">
               <img 
-                src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                src="/logo.png" 
                 alt="FearMC Logo" 
                 className="h-6 mr-2" 
               />
