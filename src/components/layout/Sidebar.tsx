@@ -25,10 +25,10 @@ const Sidebar = () => {
 
   const navItems = [
     { name: "Home", path: "/", icon: <Home size={20} /> },
+    { name: "About", path: "/about", icon: <User size={20} /> },
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "Blog", path: "/blog", icon: <BookOpen size={20} /> },
     { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
-    { name: "About", path: "/about", icon: <User size={20} /> },
   ];
 
   return (
