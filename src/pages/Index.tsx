@@ -101,11 +101,14 @@ const Index = () => {
                 </a>
               </div>
               
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {blogPosts.slice(0, 4).map((post) => (
-                  <BlogCard key={post.id} post={post} />
-                ))}
-              </div>
+<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {[...blogPosts]
+      .sort((a, b) => b.id - a.id) // Sort descending by id
+      .slice(0, 4) // Take the latest 4
+      .map((post) => (
+        <BlogCard key={post.id} post={post} />
+      ))}
+  </div>
             </section>
           </div>
           
