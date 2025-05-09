@@ -20,7 +20,7 @@ const Header = ({ serverStatus }: HeaderProps) => {
           <div className="flex-shrink-0 md:w-64 flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                src="/logo.png" 
                 alt="FearMC Logo" 
                 className="h-8 mr-2" 
               />
