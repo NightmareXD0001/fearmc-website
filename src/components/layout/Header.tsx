@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Search, User, DiscordLogo } from 'lucide-react';
+import { Search, User } from 'lucide-react';
 import { ServerStatus } from '@/utils/serverApi';
 import ServerStatusIndicator from '../ui/ServerStatusIndicator';
 
@@ -49,7 +49,7 @@ const Header = ({ serverStatus }: HeaderProps) => {
               rel="noopener noreferrer"
               className="hidden sm:flex items-center justify-center h-9 px-4 rounded-full bg-[#5865F2] hover:bg-[#4752C4] transition-colors text-white text-sm"
             >
-              <DiscordLogo className="h-4 w-4 mr-2" />
+              <DiscordIcon className="h-4 w-4 mr-2" />
               <span>Discord</span>
             </a>
 
@@ -89,8 +89,8 @@ const Header = ({ serverStatus }: HeaderProps) => {
 
 export default Header;
 
-// Add a missing icon component
-const DiscordLogo = ({ className }: { className?: string }) => (
+// Custom Discord icon component since lucide-react doesn't export a DiscordLogo
+const DiscordIcon = ({ className }: { className?: string }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
