@@ -1,13 +1,16 @@
 
+import { useState, useEffect } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
 import BlogCard from '@/components/ui/BlogCard';
 import { blogPosts } from '@/utils/blogPosts';
 
 const Blog = () => {
+  const [serverStatus, setServerStatus] = useState(null);
+
   return (
     <PageLayout>
-      <Header serverStatus={null} />
+      <Header serverStatus={serverStatus} />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 text-center">
@@ -18,17 +21,16 @@ const Blog = () => {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {blogPosts.map((post) => (
-            <BlogCard key={post.id} post={post} />
-          ))}
+          {blogPosts && blogPosts.length > 0 ? (
+            blogPosts.map((post) => (
+              <BlogCard key={post.id} post={post} />
+            ))
+          ) : (
+            <div className="col-span-full glass-card rounded-xl p-8 text-center">
+              <p className="text-gray-300">No blog posts available yet. Check back soon!</p>
+            </div>
+          )}
         </div>
-        
-        {/* If there are no blog posts */}
-        {blogPosts.length === 0 && (
-          <div className="glass-card rounded-xl p-8 text-center">
-            <p className="text-gray-300">No blog posts available yet. Check back soon!</p>
-          </div>
-        )}
       </div>
     </PageLayout>
   );

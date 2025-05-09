@@ -1,44 +1,64 @@
 
-import { BlogPost } from '@/utils/blogPosts';
 import { Link } from 'react-router-dom';
+import { Calendar } from 'lucide-react';
+import type { BlogPost } from '@/utils/blogPosts';
 
 interface BlogCardProps {
   post: BlogPost;
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
+  const formattedDate = new Date(post.date).toLocaleDateString('en-US', { 
+    year: 'numeric', 
+    month: 'short', 
+    day: 'numeric' 
+  });
+  
   return (
-    <Link to={`/blog/${post.id}`} className="block">
-      <div className="glass-card rounded-xl overflow-hidden h-full transition-all duration-300 glow-hover hover:-translate-y-1">
-        {/* Image */}
-        {post.imageUrl && (
-          <div className="h-40 overflow-hidden">
-            <img 
-              src={post.imageUrl} 
-              alt={post.title} 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        )}
+    <div className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
+      {/* Image */}
+      {post.image && (
+        <div className="aspect-video overflow-hidden">
+          <img 
+            src={post.image} 
+            alt={post.title} 
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      )}
+      
+      {/* Content */}
+      <div className="p-5">
+        {/* Category */}
+        <div className="mb-2">
+          <span className="text-xs font-medium text-fear-red bg-fear-red/10 rounded-full px-2.5 py-1">
+            {post.category}
+          </span>
+        </div>
         
-        {/* Content */}
-        <div className="p-5">
-          <div className="flex justify-between items-start mb-2">
-            <span className={`text-xs font-medium px-2 py-1 rounded-full ${
-              post.tag === 'Update' ? 'bg-blue-500/20 text-blue-400' :
-              post.tag === 'Event' ? 'bg-green-500/20 text-green-400' :
-              'bg-fear-red/20 text-fear-red'
-            }`}>
-              {post.tag}
-            </span>
-            <span className="text-xs text-gray-400">{post.date}</span>
+        {/* Title */}
+        <h3 className="text-lg font-bold text-white mb-2 line-clamp-2">
+          {post.title}
+        </h3>
+        
+        {/* Excerpt */}
+        <p className="text-sm text-gray-300 mb-4 line-clamp-3">
+          {post.excerpt}
+        </p>
+        
+        {/* Meta */}
+        <div className="flex justify-between items-center">
+          <div className="flex items-center text-xs text-gray-400">
+            <Calendar size={14} className="mr-1" />
+            <span>{formattedDate}</span>
           </div>
           
-          <h3 className="font-medium text-lg mb-2 text-white">{post.title}</h3>
-          <p className="text-gray-400 text-sm line-clamp-2">{post.excerpt}</p>
+          <Link to={`/blog/${post.id}`} className="text-xs font-medium text-fear-red hover:text-fear-red/80">
+            Read More
+          </Link>
         </div>
       </div>
-    </Link>
+    </div>
   );
 };
 

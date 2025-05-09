@@ -64,8 +64,8 @@ const Sidebar = () => {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) => 
-                      `flex items-center p-3 rounded-full transition-all duration-200 glow-hover
-                      ${isActive ? 'bg-fear-red text-white' : 'text-gray-300 hover:bg-fear-darkgray hover:translate-x-1'}`
+                      `flex items-center p-3 rounded-full transition-all duration-200
+                      ${isActive ? 'bg-fear-red text-white' : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'}`
                     }
                     onClick={() => isMobile && setIsMobileOpen(false)}
                   >
