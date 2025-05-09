@@ -29,7 +29,7 @@ const Sidebar = () => {
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "Blog", path: "/blog", icon: <BookOpen size={20} /> },
     { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
-    { name: "Store", path: "/store", icon: <ShoppingCart size={20} /> },
+    { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
 
   return (
