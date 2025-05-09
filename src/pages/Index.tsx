@@ -41,7 +41,7 @@ const Index = () => {
               <div className="max-w-3xl">
                 <div className="flex items-center justify-center mb-6">
                   <img 
-                    src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                    src="/logo.png" 
                     alt="FearMC Logo" 
                     className="h-16 mb-4" 
                   />
@@ -75,7 +75,7 @@ const Index = () => {
               <div className="glass-card rounded-xl p-6">
                 <div className="flex items-center mb-4">
                   <img 
-                    src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                    src="/logo.png"  
                     alt="FearMC Logo" 
                     className="h-8 mr-3" 
                   />
@@ -118,7 +118,7 @@ const Index = () => {
             <div className="glass-card rounded-xl overflow-hidden">
               <div className="bg-fear-darkgray p-4 flex items-center">
                 <img 
-                  src="/lovable-uploads/948a2047-fbbe-4cfd-a93f-93a9af54594d.png" 
+                  src="/logo.png"  
                   alt="FearMC Logo" 
                   className="h-5 mr-2" 
                 />
