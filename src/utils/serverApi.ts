@@ -15,7 +15,7 @@ export interface DiscordStatus {
   error?: string;
 }
 
-const SERVER_IP = 'mc.hypixel.net';
+const SERVER_IP = 'play.fearmc.net';
 const DISCORD_ID = '1202134003206066247'; // Replace with actual Discord server ID
 
 export const getServerStatus = async (): Promise<ServerStatus> => {
