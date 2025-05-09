@@ -47,19 +47,19 @@ const Index = () => {
                   />
                 </div>
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-white">
-                  <span className="minecraft-text text-fear-red block mb-2">HERE TO PLAY</span>
-                  MINECRAFT?
+                  YOUR NEXT <span className="minecraft-text text-fear-red block mb-2">OBSESSION</span> STARTS HERE !
                 </h1>
                 
                 <p className="text-gray-300 mb-8 md:text-lg">
-                  Join thousands of players on FearMC - one of the most exciting Minecraft servers with unique game modes and an awesome community!
-                </p>
+Welcome to FearMC — a high-stakes, high-reward Minecraft server built for the bold. Whether you're dominating PvP arenas, mastering custom game modes, or just vibing with our ever-growing community, every moment here is unforgettable.
+Infinite ways to play. One question remains:
+Will you rise… or respawn?                </p>
                 
                 <button
                   onClick={() => setIsJoinModalOpen(true)}
                   className="px-8 py-3 rounded-full bg-fear-red hover:bg-fear-red/80 text-white font-medium text-lg transition-transform hover:scale-105 animate-pulse-light"
                 >
-                  I WANT TO PLAY!
+                  Join Now!
                 </button>
               </div>
             </div>
