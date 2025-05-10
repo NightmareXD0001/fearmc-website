@@ -210,9 +210,9 @@ We value diversity and encourage players from all backgrounds and time zones to 
 Applications will remain open until May 30th. Successful candidates will be notified by June 7th.
 
 Join us in making FearMC the best Minecraft community it can be!`,
-    date: '2025-05-20',
+    date: '2025-05-15',
     author: 'Admin',
-    image: '/placeholder.svg',
+    image: '/staff-recruitment.png',
     category: 'Announcements',
     tags: ['staff', 'recruitment']
   }
