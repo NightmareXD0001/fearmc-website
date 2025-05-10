@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Home, BookOpen, BadgeAlert, MessageSquare, User, ShoppingCart } from 'lucide-react';
+import { Menu, X, Home, Newspaper, BadgeAlert, MessageSquare, User, ShoppingCart } from 'lucide-react';
 
 const Sidebar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
@@ -27,7 +27,7 @@ const Sidebar = () => {
     { name: "Home", path: "/", icon: <Home size={20} /> },
     { name: "About", path: "/about", icon: <User size={20} /> },
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
-    { name: "Blog", path: "/blog", icon: <BookOpen size={20} /> },
+    { name: "News", path: "/news", icon: <Newspaper size={20} /> },
     { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
     { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
