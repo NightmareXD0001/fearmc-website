@@ -35,7 +35,7 @@ const Header = ({ serverStatus }: HeaderProps) => {
             <div className="relative w-full max-w-md">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="Coming Soon..."
                 className="w-full bg-fear-darkgray/50 border border-white/10 rounded-full py-2 pl-10 pr-4 text-sm focus:outline-none focus:ring-2 focus:ring-fear-red/50"
               />
               <Search className="absolute left-3 top-2.5 h-4 w-4 text-gray-400" />
