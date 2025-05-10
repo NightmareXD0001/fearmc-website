@@ -2,11 +2,11 @@
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
-import BlogCard from '@/components/ui/BlogCard';
+import NewsCard from '@/components/ui/NewsCard';
 import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { getServerStatus, ServerStatus } from '@/utils/serverApi';
-import { blogPosts } from '@/utils/blogPosts';
+import { newsPosts } from '@/utils/newsPosts';
 
 const Index = () => {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
@@ -92,21 +92,21 @@ Will you rise… or respawn?                </p>
               </div>
             </section>
             
-            {/* News/Blog Section */}
+            {/* News/News Section */}
             <section>
               <div className="flex justify-between items-center mb-4">
                 <h2 className="text-2xl font-bold text-white">Latest News</h2>
-                <a href="/blog" className="text-fear-red hover:text-fear-red/80 text-sm font-medium">
+                <a href="/news" className="text-fear-red hover:text-fear-red/80 text-sm font-medium">
                   View All
                 </a>
               </div>
               
 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {[...blogPosts]
+    {[...newsPosts]
       .sort((a, b) => b.id - a.id) // Sort descending by id
       .slice(0, 4) // Take the latest 4
       .map((post) => (
-        <BlogCard key={post.id} post={post} />
+        <NewsCard key={post.id} post={post} />
       ))}
   </div>
             </section>
