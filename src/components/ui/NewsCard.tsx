@@ -2,8 +2,6 @@
 import { Link } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
 import type { NewsPost } from '@/utils/newsPosts';
-import ReactMarkdown from 'react-markdown';
-
 interface NewsCardProps {
   post: NewsPost;
 }
@@ -43,9 +41,9 @@ const NewsCard = ({ post }: NewsCardProps) => {
         </h3>
         
         {/* Excerpt */}
-        <div className="prose prose-sm prose-invert text-gray-300 mb-4 max-w-none">
-  <ReactMarkdown>{post.excerpt}</ReactMarkdown>
-</div>
+        <p className="text-sm text-gray-300 mb-4 line-clamp-3">
+          {post.excerpt}
+        </p>
         
         {/* Meta */}
         <div className="flex justify-between items-center">
