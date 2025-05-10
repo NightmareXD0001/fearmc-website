@@ -100,7 +100,7 @@ export default {
         },
         "pulse-light": {
           "0%, 100%": { opacity: "0.6" },
-          "50%": { opacity: "1" },
+          "50%": { opacity: "0.8" },
         },
       },
       animation: {
