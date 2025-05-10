@@ -1,5 +1,5 @@
 
-export type BlogPost = {
+export type NewsPost = {
   id: string;
   title: string;
   excerpt: string;
@@ -11,7 +11,7 @@ export type BlogPost = {
   tags: string[];
 };
 
-export const blogPosts: BlogPost[] = [
+export const newsPosts: NewsPost[] = [
   {
     id: '1',
     title: 'Welcome to FearMC',
