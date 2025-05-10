@@ -7,7 +7,6 @@ import { newsPosts, NewsPost as NewsPostType } from '@/utils/newsPosts';
 import { Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import ReactMarkdown from "react-markdown";
 
 
 const NewsPost = () => {
