@@ -14,6 +14,7 @@ const NewsCard = ({ post }: NewsCardProps) => {
   });
   
   return (
+    <Link to={`/news/${post.id}`} className="text-xs font-medium text-fear-red hover:text-fear-red/80">
     <div className="glass-card rounded-xl overflow-hidden transition-all duration-300 hover:-translate-y-1 hover:shadow-lg">
       {/* Image */}
       {post.image && (
@@ -52,12 +53,14 @@ const NewsCard = ({ post }: NewsCardProps) => {
             <span>{formattedDate}</span>
           </div>
           
-          <Link to={`/news/${post.id}`} className="text-xs font-medium text-fear-red hover:text-fear-red/80">
-            Read More
-          </Link>
+<span className="text-xs font-medium text-fear-red hover:text-fear-red/80">
+              Read More
+            </span>
+          </div>
         </div>
       </div>
-    </div>
+    </Link>
+
   );
 };
 
