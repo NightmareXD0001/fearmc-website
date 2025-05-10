@@ -1,13 +1,13 @@
 
 import { Link } from 'react-router-dom';
 import { Calendar } from 'lucide-react';
-import type { BlogPost } from '@/utils/blogPosts';
+import type { NewsPost } from '@/utils/newsPosts';
 
-interface BlogCardProps {
-  post: BlogPost;
+interface NewsCardProps {
+  post: NewsPost;
 }
 
-const BlogCard = ({ post }: BlogCardProps) => {
+const NewsCard = ({ post }: NewsCardProps) => {
   const formattedDate = new Date(post.date).toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'short', 
@@ -53,7 +53,7 @@ const BlogCard = ({ post }: BlogCardProps) => {
             <span>{formattedDate}</span>
           </div>
           
-          <Link to={`/blog/${post.id}`} className="text-xs font-medium text-fear-red hover:text-fear-red/80">
+          <Link to={`/news/${post.id}`} className="text-xs font-medium text-fear-red hover:text-fear-red/80">
             Read More
           </Link>
         </div>
@@ -62,4 +62,4 @@ const BlogCard = ({ post }: BlogCardProps) => {
   );
 };
 
-export default BlogCard;
+export default NewsCard;
