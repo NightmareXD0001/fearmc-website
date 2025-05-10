@@ -74,7 +74,7 @@ export default {
       fontFamily: {
         rubik: ["Rubik", "sans-serif"],
         poppins: ["Poppins", "sans-serif"],
-        minecraft: ['"Press Start 2P"', "cursive"],
+        bungee: ["Bungee", "cursive"],
       },
       borderRadius: {
         lg: "var(--radius)",

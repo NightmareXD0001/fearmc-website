@@ -13,9 +13,9 @@ const Header = ({ serverStatus }: HeaderProps) => {
   const [showSearch, setShowSearch] = useState(false);
 
   return (
-    <header className="sticky top-0 z-30 w-full bg-fear-black/80 backdrop-blur-lg border-b border-white/5">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16 md:h-20">
+    <header className="fixed top-4 left-1/2 -translate-x-1/2 z-30 w-[95%] max-w-7xl bg-fear-black/60 backdrop-blur-lg border border-white/10 rounded-full glass-card shadow-lg">
+      <div className="px-4 md:px-6">
+        <div className="flex items-center justify-between h-16 md:h-16">
           {/* Logo - visible on all screens */}
           <div className="flex-shrink-0 md:w-64 flex items-center">
             <Link to="/" className="flex items-center">
