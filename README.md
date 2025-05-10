@@ -1,73 +1,75 @@
-# Welcome to your Lovable project
+# 🌌 FearMC - Your Next Obsession Starts Here!
 
-## Project info
+![FearMC Banner](https://fearmc.net/logo.png)
 
-**URL**: https://lovable.dev/projects/f9854e06-8d12-489e-bdbe-0afd48953e1a
+FearMC is a **high-stakes, high-reward Minecraft server** built for the bold. Whether you're a PvP god, a game mode explorer, or just here for the vibes, FearMC offers an unforgettable journey with our custom-built experience and thriving community.
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## 🚀 Features
 
-**Use Lovable**
+- ⚔️ **Intense PvP Arenas** – Prove your skill and climb the ranks.
+- 🎮 **Custom Game Modes** – Unique experiences you won't find anywhere else.
+- 👑 **Thriving Community** – Join thousands of active players.
+- 🛍️ **In-Game Store** – Skins, ranks, and more to personalize your experience.
+- 🔥 **Modern UI** – Clean, responsive design with dark red & gold theme.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/f9854e06-8d12-489e-bdbe-0afd48953e1a) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## 🌐 Website Preview
 
-**Use your preferred IDE**
+![Website Screenshot]([https://user-images.githubusercontent.com/your-screenshot-link.png](https://media.discordapp.net/attachments/1093028009436524576/1370686266303320214/image.png?ex=68206690&is=681f1510&hm=24fa3ebb6f5fc0ed4ba6953a3f26153e020e24db530bd2f47eda55ab86fe3e8d&=&format=webp&quality=lossless&width=807&height=544))
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+Explore the FearMC website for server rules, news, and the in-game store:
+🔗 [fearmc.net](https://fearmc.net)
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## 📥 How to Join
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+🖥️ Launch Minecraft  
+🌍 Add Server: `play.fearmc.net`  
+🎉 Join the FearMC universe!
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+---
 
-# Step 3: Install the necessary dependencies.
-npm i
+## 🛠️ Tech Stack
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+- **HTML / CSS / JavaScript**
+- **Modern UI/UX** with a dark theme aesthetic
+- **Fully Responsive Design**
+- **GitHub Pages Compatible**
+
+---
+
+## 🧰 Development
+
+Clone the repository and start developing locally:
+
+```bash
+git clone https://github.com/NightmareXD0001/fearmc-website.git
+cd fearmc-website
+open index.html
+````
+
+Want to contribute? Feel free to fork, improve, and open a pull request.
+
+---
+
+## 🙌 Credits
+
+Created with ❤️ by [NightmareXD0001](https://github.com/NightmareXD0001)
+Special thanks to the FearMC community for their endless support and ideas!
+
+---
+
+## 📫 Connect With Us
+
+* 🌐 Website: [fearmc.net](https://fearmc.net)
+* 💬 Discord: [Join Our Server](https://discord.gg/fearmc) 
+
+---
+
+> *"Will you rise... or respawn?"*
+
 ```
-
-**Edit a file directly in GitHub**
-
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
-
-**Use GitHub Codespaces**
-
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
-
-## What technologies are used for this project?
-
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/f9854e06-8d12-489e-bdbe-0afd48953e1a) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
