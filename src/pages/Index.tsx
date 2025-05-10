@@ -46,7 +46,7 @@ const Index = () => {
                     className="h-48 mb-4" 
                   />
                 </div>
-                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-fear-red minecraft-text">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-6 text-fear-red font-bungee">
                   YOUR NEXT OBSESSION STARTS HERE!
                 </h2>
      
@@ -101,14 +101,14 @@ Will you rise… or respawn?                </p>
                 </a>
               </div>
               
-<div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {[...newsPosts]
-      .sort((a, b) => b.id - a.id) // Sort descending by id
-      .slice(0, 4) // Take the latest 4
-      .map((post) => (
-        <NewsCard key={post.id} post={post} />
-      ))}
-  </div>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {[...newsPosts]
+                  .sort((a, b) => b.id - a.id) // Sort descending by id
+                  .slice(0, 4) // Take the latest 4
+                  .map((post) => (
+                    <NewsCard key={post.id} post={post} />
+                  ))}
+              </div>
             </section>
           </div>
           
@@ -140,7 +140,7 @@ Will you rise… or respawn?                </p>
                   
                   <div className="flex justify-between items-center">
                     <span className="text-gray-300">Players:</span>
-                    <span className="text-white">{serverStatus?.players.online || 0} / {serverStatus?.players.max || 0}</span>
+                    <span className="text-white">{serverStatus?.players?.online || 0} / {serverStatus?.players?.max || 0}</span>
                   </div>
                   
                   <div className="flex justify-between items-center">
