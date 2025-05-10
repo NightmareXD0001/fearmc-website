@@ -72,7 +72,7 @@ const Events = () => {
           {events.map((event) => (
             <div 
               key={event.id}
-              className="bg-fear-darkgray/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/5 hover:border-fear-red/30 transition-all hover:shadow-md hover:shadow-fear-red/20"
+              className="bg-fear-darkgray/50 backdrop-blur-sm rounded-xl overflow-hidden border border-white/5 hover:border-fear-red/30 transition-all hover:shadow-md hover:shadow-fear-red/20 flex flex-col"
             >
               <div className="h-48 overflow-hidden relative">
                 <img 
@@ -90,25 +90,27 @@ const Events = () => {
                   </span>
                 </div>
               </div>
-              <div className="p-5">
+              <div className="p-5 flex flex-col flex-grow">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="font-bungee text-lg">{event.title}</h3>
                   <span className="text-sm text-gray-400">
                     {new Date(event.date).toLocaleDateString()}
                   </span>
                 </div>
-                <p className="text-gray-300 mb-4 text-sm">{event.description}</p>
-                <button
-                  onClick={() => handleRegister(event.id)}
-                  disabled={!event.registrationOpen}
-                  className={`w-full py-2 rounded-md font-medium transition-all ${
-                    event.registrationOpen
-                      ? "bg-fear-red hover:bg-fear-red/80 text-white"
-                      : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                  }`}
-                >
-                  {event.registrationOpen ? "Register Now" : "Coming Soon"}
-                </button>
+                <p className="text-gray-300 mb-4 text-sm flex-grow">{event.description}</p>
+                <div className="mt-auto">
+                  <button
+                    onClick={() => handleRegister(event.id)}
+                    disabled={!event.registrationOpen}
+                    className={`w-full py-2 rounded-md font-medium transition-all ${
+                      event.registrationOpen
+                        ? "bg-fear-red hover:bg-fear-red/80 text-white"
+                        : "bg-gray-700 text-gray-400 cursor-not-allowed"
+                    }`}
+                  >
+                    {event.registrationOpen ? "Register Now" : "Coming Soon"}
+                  </button>
+                </div>
               </div>
             </div>
           ))}

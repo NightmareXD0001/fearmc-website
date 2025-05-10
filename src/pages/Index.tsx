@@ -1,4 +1,5 @@
-import { useState, useEffect, useQuery } from 'react';
+import { useState, useEffect } from 'react';
+import { useQuery } from '@tanstack/react-query';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
 import NewsCard from '@/components/ui/NewsCard';
@@ -6,36 +7,28 @@ import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { getServerStatus, ServerStatus } from '@/utils/serverApi';
 import { newsPosts } from '@/utils/newsPosts';
-import { fetchServerStatus } from '@/utils/serverApi';
 
 const Index = () => {
-  const { data: serverStatus, isLoading: serverStatusLoading } = useQuery({
-    queryKey: ["serverStatus"],
-    queryFn: fetchServerStatus,
-  });
-
+  const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
+  // Using React Query to fetch server status
+  const { data: serverStatusData, isLoading: serverStatusLoading } = useQuery({
+    queryKey: ["serverStatus"],
+    queryFn: getServerStatus,
+    refetchInterval: 60000, // Refetch every minute
+  });
+
+  // Update local state when query data changes
   useEffect(() => {
-    const fetchServerStatus = async () => {
-      try {
-        const data = await getServerStatus();
-        setServerStatus(data);
-      } catch (error) {
-        console.error("Failed to fetch server status", error);
-      }
-    };
+    if (serverStatusData) {
+      setServerStatus(serverStatusData);
+    }
+  }, [serverStatusData]);
 
-    fetchServerStatus();
-    
-    // Refresh every minute
-    const interval = setInterval(fetchServerStatus, 60 * 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  // Fix the arithmetic operation on playerPercentage
-  const playerPercentage = serverStatus?.playerCount && serverStatus?.maxPlayers 
-    ? (serverStatus.playerCount / serverStatus.maxPlayers) * 100
+  // Safely calculate player percentage
+  const playerPercentage = serverStatus?.players?.online && serverStatus?.players?.max 
+    ? (serverStatus.players.online / serverStatus.players.max) * 100
     : 0;
 
   return (
@@ -60,9 +53,10 @@ const Index = () => {
                 </h2>
      
                 <p className="text-gray-300 mb-8 md:text-lg">
-Welcome to FearMC — a high-stakes, high-reward Minecraft server built for the bold. Whether you're dominating PvP arenas, mastering custom game modes, or just vibing with our ever-growing community, every moment here is unforgettable.
-Infinite ways to play. One question remains:
-Will you rise… or respawn?                </p>
+                  Welcome to FearMC — a high-stakes, high-reward Minecraft server built for the bold. Whether you're dominating PvP arenas, mastering custom game modes, or just vibing with our ever-growing community, every moment here is unforgettable.
+                  Infinite ways to play. One question remains:
+                  Will you rise… or respawn?
+                </p>
                 
                 <button
                   onClick={() => setIsJoinModalOpen(true)}
