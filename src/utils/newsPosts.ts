@@ -212,7 +212,7 @@ Applications will remain open until May 30th. Successful candidates will be noti
 Join us in making FearMC the best Minecraft community it can be!`,
     date: '2025-05-15',
     author: 'Admin',
-    image: '/staff-recruitment.png',
+    image: '/news/staff-recruitment.png',
     category: 'Announcements',
     tags: ['staff', 'recruitment']
   }
