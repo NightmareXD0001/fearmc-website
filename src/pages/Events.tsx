@@ -13,22 +13,6 @@ const events = [
     date: "2025-06-15",
     description: "Join us for an epic PvP tournament with amazing prizes!",
     image: "/placeholder.svg",
-    registrationOpen: true,
-  },
-  {
-    id: 2,
-    title: "Build Competition",
-    date: "2025-07-10",
-    description: "Show off your building skills and win exclusive in-game rewards!",
-    image: "/placeholder.svg",
-    registrationOpen: true,
-  },
-  {
-    id: 3,
-    title: "Survival Games",
-    date: "2025-08-05",
-    description: "Fight to be the last player standing in our special survival games event.",
-    image: "/placeholder.svg",
     registrationOpen: false,
   },
 ];
