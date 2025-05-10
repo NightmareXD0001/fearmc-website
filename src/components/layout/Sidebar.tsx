@@ -26,10 +26,10 @@ const Sidebar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: <Home size={20} /> },
     { name: "About", path: "/about", icon: <User size={20} /> },
-    { name: "Events", path: "/events", icon: <Calendar size={20} /> },
+    /*{ name: "Events", path: "/events", icon: <Calendar size={20} /> },*/
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "News", path: "/news", icon: <Newspaper size={20} /> },
-    { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
+    /*{ name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },*/
     { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
 
