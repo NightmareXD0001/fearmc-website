@@ -45,34 +45,27 @@ const Sidebar = () => {
 
       {/* Sidebar */}
       <aside
-        className={`fixed top-0 left-0 z-40 h-screen transition-all duration-300 sidebar-glow
+        className={`fixed top-24 left-4 z-40 h-[calc(100vh-120px)] transition-all duration-300 
           ${isMobile ? (isMobileOpen ? 'translate-x-0' : '-translate-x-full') : 'translate-x-0'}
-          bg-gradient-to-b from-fear-black to-fear-darkgray/90 w-64 backdrop-blur-lg`}
+          glass-card backdrop-blur-lg border border-white/10 shadow-lg rounded-xl w-64`}
       >
-        <div className="flex flex-col h-full py-8 px-4">
-          {/* Logo */}
-          <div className="mb-8 px-2">
-            <h1 className="text-2xl font-bold text-white text-center">
-              <span className="text-fear-red text-glow">FearMC</span>
-            </h1>
-          </div>
-
+        <div className="flex flex-col h-full py-4 px-2">
           {/* Navigation */}
-          <nav className="flex-1">
-            <ul className="space-y-2 px-2">
+          <nav className="flex-1 overflow-y-auto scrollbar-none">
+            <ul className="space-y-1 px-2">
               {navItems.map((item) => (
                 <li key={item.name}>
                   <NavLink
-  to={item.path}
-  className={({ isActive }) =>
-    `flex items-center p-3 rounded-full transition-all duration-200 ${
-      isActive
-        ? 'bg-fear-red text-white'
-        : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'
-    }`
-  }
-  onClick={() => isMobile && setIsMobileOpen(false)}
->
+                    to={item.path}
+                    className={({ isActive }) =>
+                      `flex items-center p-3 rounded-full transition-all duration-200 ${
+                        isActive
+                          ? 'bg-fear-red text-white'
+                          : 'text-gray-300 hover:bg-fear-darkgray hover:text-fear-red hover:translate-x-1'
+                      }`
+                    }
+                    onClick={() => isMobile && setIsMobileOpen(false)}
+                  >
                     <span className="mr-3">{item.icon}</span>
                     <span>{item.name}</span>
                   </NavLink>
