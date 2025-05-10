@@ -3,19 +3,19 @@ import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
-import { blogPosts, BlogPost as BlogPostType } from '@/utils/blogPosts';
+import { newsPosts, NewsPost as NewsPostType } from '@/utils/newsPosts';
 import { Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 
-const BlogPost = () => {
+const NewsPost = () => {
   const { id } = useParams();
-  const [post, setPost] = useState<BlogPostType | null>(null);
+  const [post, setPost] = useState<NewsPostType | null>(null);
   const [serverStatus, setServerStatus] = useState(null);
 
   useEffect(() => {
-    // Find the blog post with the matching id
-    const foundPost = blogPosts.find(post => post.id === id);
+    // Find the news post with the matching id
+    const foundPost = newsPosts.find(post => post.id === id);
     setPost(foundPost || null);
   }, [id]);
 
@@ -24,11 +24,11 @@ const BlogPost = () => {
       <PageLayout>
         <Header serverStatus={serverStatus} />
         <div className="container mx-auto px-4 py-16 text-center">
-          <h1 className="text-2xl font-bold text-white mb-4">Blog Post Not Found</h1>
-          <p className="text-gray-300 mb-8">The blog post you're looking for doesn't exist or has been removed.</p>
-          <Link to="/blog">
+          <h1 className="text-2xl font-bold text-white mb-4">News Post Not Found</h1>
+          <p className="text-gray-300 mb-8">The news post you're looking for doesn't exist or has been removed.</p>
+          <Link to="/news">
             <Button variant="default" className="bg-fear-red hover:bg-fear-red/80">
-              Back to Blog
+              Back to News
             </Button>
           </Link>
         </div>
@@ -47,7 +47,7 @@ const BlogPost = () => {
       <Header serverStatus={serverStatus} />
       
       <div className="container mx-auto px-4 py-8">
-        <Link to="/blog" className="text-fear-red hover:text-fear-red/80 flex items-center mb-6">
+        <Link to="/news" className="text-fear-red hover:text-fear-red/80 flex items-center mb-6">
           ← Back to all posts
         </Link>
         
@@ -114,4 +114,4 @@ const BlogPost = () => {
   );
 };
 
-export default BlogPost;
+export default NewsPost;
