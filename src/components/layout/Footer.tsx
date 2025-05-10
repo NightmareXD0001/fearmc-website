@@ -1,7 +1,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FileText, Heart, Github } from 'lucide-react';
+import { FileText, Heart, Github, Headset } from 'lucide-react';
 
 interface FooterProps {
   visible?: boolean;
@@ -69,6 +69,12 @@ const Footer = ({ visible = true }: FooterProps) => {
                 <Link to="/terms-of-service" className="text-gray-400 hover:text-fear-red transition-colors flex items-center">
                   <FileText size={16} className="mr-2" />
                   Terms of Service
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-gray-400 hover:text-fear-red transition-colors flex items-center">
+                  <Headset size={16} className="mr-2" />
+                  Contact Us
                 </Link>
               </li>
             </ul>
