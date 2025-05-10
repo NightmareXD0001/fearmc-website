@@ -93,7 +93,7 @@ const NewsPost = () => {
             
             {/* Content */}
             <div className="prose prose-invert prose-sm sm:prose-base max-w-none">
-  <ReactMarkdown>{post.content}</ReactMarkdown>
+<p className="text-gray-300 whitespace-pre-line">{post.content}</p>
 </div>
             
             {/* Tags */}
