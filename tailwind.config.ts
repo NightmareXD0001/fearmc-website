@@ -99,7 +99,7 @@ export default {
           "50%": { boxShadow: "0 0 20px rgba(225, 29, 29, 0.6)" },
         },
         "pulse-light": {
-          "0%, 100%": { opacity: "0.8" },
+          "0%, 100%": { opacity: "0.9" },
           "50%": { opacity: "1" },
         },
       },
