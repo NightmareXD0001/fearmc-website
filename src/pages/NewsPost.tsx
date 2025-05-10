@@ -7,6 +7,8 @@ import { newsPosts, NewsPost as NewsPostType } from '@/utils/newsPosts';
 import { Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import ReactMarkdown from "react-markdown";
+
 
 const NewsPost = () => {
   const { id } = useParams();
@@ -91,8 +93,8 @@ const NewsPost = () => {
             
             {/* Content */}
             <div className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <p className="text-gray-300 whitespace-pre-line">{post.content}</p>
-            </div>
+  <ReactMarkdown>{post.content}</ReactMarkdown>
+</div>
             
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
