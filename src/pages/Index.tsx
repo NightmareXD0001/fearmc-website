@@ -1,5 +1,4 @@
-
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useQuery } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import Header from '@/components/layout/Header';
 import NewsCard from '@/components/ui/NewsCard';
@@ -7,9 +6,14 @@ import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { getServerStatus, ServerStatus } from '@/utils/serverApi';
 import { newsPosts } from '@/utils/newsPosts';
+import { fetchServerStatus } from '@/utils/serverApi';
 
 const Index = () => {
-  const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
+  const { data: serverStatus, isLoading: serverStatusLoading } = useQuery({
+    queryKey: ["serverStatus"],
+    queryFn: fetchServerStatus,
+  });
+
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
   useEffect(() => {
@@ -28,6 +32,11 @@ const Index = () => {
     const interval = setInterval(fetchServerStatus, 60 * 1000);
     return () => clearInterval(interval);
   }, []);
+
+  // Fix the arithmetic operation on playerPercentage
+  const playerPercentage = serverStatus?.playerCount && serverStatus?.maxPlayers 
+    ? (serverStatus.playerCount / serverStatus.maxPlayers) * 100
+    : 0;
 
   return (
     <PageLayout>

@@ -10,6 +10,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@/components/ui/form";
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
@@ -17,6 +18,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
+import { discordWebhooks } from "@/utils/webhookConfig";
 
 interface EventRegistrationFormProps {
   eventId: number;
@@ -32,7 +34,6 @@ const formSchema = z.object({
   age: z.string().min(1, "Please select your age group"),
   experience: z.string().min(1, "Please select your experience level"),
   additionalInfo: z.string().optional(),
-  webhookUrl: z.string().url("Please enter a valid webhook URL").optional(),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -40,7 +41,6 @@ type FormValues = z.infer<typeof formSchema>;
 const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistrationFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [showWebhookField, setShowWebhookField] = useState(false);
 
   // Form definition
   const form = useForm<FormValues>({
@@ -52,7 +52,6 @@ const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistratio
       age: "",
       experience: "",
       additionalInfo: "",
-      webhookUrl: "",
     },
   });
 
@@ -78,10 +77,10 @@ const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistratio
         },
       };
 
-      const webhookUrl = data.webhookUrl || "";
+      const webhookUrl = discordWebhooks.eventRegistrations;
       
       if (webhookUrl) {
-        // Send to Discord webhook if provided
+        // Send to Discord webhook if configured
         await fetch(webhookUrl, {
           method: "POST",
           headers: {
@@ -103,7 +102,7 @@ const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistratio
         
         toast({
           title: "Registration successful!",
-          description: "Your registration has been received.",
+          description: "Your registration has been received. Note: Discord webhook not configured.",
         });
       }
       
@@ -135,195 +134,165 @@ const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistratio
         </button>
       </div>
       
-      <div className="p-5">
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
-            <FormField
-              control={form.control}
-              name="username"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Minecraft Username</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your Minecraft username" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Email Address</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Enter your email address" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="discordId"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Discord ID (optional)</FormLabel>
-                  <FormControl>
-                    <Input placeholder="e.g. username#1234" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="age"
-              render={({ field }) => (
-                <FormItem className="space-y-3">
-                  <FormLabel>Age Group</FormLabel>
-                  <FormControl>
-                    <RadioGroup
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      className="flex flex-col space-y-1"
-                    >
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="Under 18" />
-                        </FormControl>
-                        <FormLabel className="font-normal">Under 18</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="18-24" />
-                        </FormControl>
-                        <FormLabel className="font-normal">18-24</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="25+" />
-                        </FormControl>
-                        <FormLabel className="font-normal">25+</FormLabel>
-                      </FormItem>
-                    </RadioGroup>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="experience"
-              render={({ field }) => (
-                <FormItem className="space-y-3">
-                  <FormLabel>Minecraft Experience</FormLabel>
-                  <FormControl>
-                    <RadioGroup
-                      onValueChange={field.onChange}
-                      defaultValue={field.value}
-                      className="flex flex-col space-y-1"
-                    >
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="Beginner" />
-                        </FormControl>
-                        <FormLabel className="font-normal">Beginner</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="Intermediate" />
-                        </FormControl>
-                        <FormLabel className="font-normal">Intermediate</FormLabel>
-                      </FormItem>
-                      <FormItem className="flex items-center space-x-3 space-y-0">
-                        <FormControl>
-                          <RadioGroupItem value="Expert" />
-                        </FormControl>
-                        <FormLabel className="font-normal">Expert</FormLabel>
-                      </FormItem>
-                    </RadioGroup>
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="additionalInfo"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Additional Information (optional)</FormLabel>
-                  <FormControl>
-                    <Textarea
-                      placeholder="Any other information you'd like to share"
-                      className="resize-none"
-                      {...field}
-                    />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <div className="pt-2">
-              <button
-                type="button"
-                onClick={() => setShowWebhookField(!showWebhookField)}
-                className="text-sm text-fear-red hover:text-fear-red/80 transition-colors"
-              >
-                {showWebhookField ? "Hide Discord Webhook" : "Configure Discord Webhook"}
-              </button>
+      <ScrollArea className="h-[70vh] max-h-[600px]">
+        <div className="p-5">
+          <Form {...form}>
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-5">
+              <FormField
+                control={form.control}
+                name="username"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Minecraft Username</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your Minecraft username" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
               
-              {showWebhookField && (
-                <FormField
-                  control={form.control}
-                  name="webhookUrl"
-                  render={({ field }) => (
-                    <FormItem className="mt-3">
-                      <FormLabel>Discord Webhook URL</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="https://discord.com/api/webhooks/..."
-                          {...field}
-                        />
-                      </FormControl>
-                      <FormMessage />
-                      <p className="text-xs text-gray-400 mt-1">
-                        This will send the registration as an embed to your Discord channel.
-                      </p>
-                    </FormItem>
-                  )}
-                />
-              )}
-            </div>
-            
-            <div className="flex justify-end space-x-3 pt-2">
-              <Button
-                type="button"
-                variant="outline"
-                onClick={onClose}
-                disabled={isSubmitting}
-              >
-                Cancel
-              </Button>
-              <Button
-                type="submit"
-                disabled={isSubmitting}
-                className="bg-fear-red hover:bg-fear-red/80 text-white"
-              >
-                {isSubmitting ? "Submitting..." : "Register"}
-              </Button>
-            </div>
-          </form>
-        </Form>
-      </div>
+              <FormField
+                control={form.control}
+                name="email"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Email Address</FormLabel>
+                    <FormControl>
+                      <Input placeholder="Enter your email address" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="discordId"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Discord ID (optional)</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e.g. username#1234" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="age"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel>Age Group</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-1"
+                      >
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="Under 18" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Under 18</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="18-24" />
+                          </FormControl>
+                          <FormLabel className="font-normal">18-24</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="25+" />
+                          </FormControl>
+                          <FormLabel className="font-normal">25+</FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="experience"
+                render={({ field }) => (
+                  <FormItem className="space-y-3">
+                    <FormLabel>Minecraft Experience</FormLabel>
+                    <FormControl>
+                      <RadioGroup
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                        className="flex flex-col space-y-1"
+                      >
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="Beginner" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Beginner</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="Intermediate" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Intermediate</FormLabel>
+                        </FormItem>
+                        <FormItem className="flex items-center space-x-3 space-y-0">
+                          <FormControl>
+                            <RadioGroupItem value="Expert" />
+                          </FormControl>
+                          <FormLabel className="font-normal">Expert</FormLabel>
+                        </FormItem>
+                      </RadioGroup>
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <FormField
+                control={form.control}
+                name="additionalInfo"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Additional Information (optional)</FormLabel>
+                    <FormControl>
+                      <Textarea
+                        placeholder="Any other information you'd like to share"
+                        className="resize-none"
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+              
+              <div className="flex justify-end space-x-3 pt-2">
+                <Button
+                  type="button"
+                  variant="outline"
+                  onClick={onClose}
+                  disabled={isSubmitting}
+                >
+                  Cancel
+                </Button>
+                <Button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="bg-fear-red hover:bg-fear-red/80 text-white"
+                >
+                  {isSubmitting ? "Submitting..." : "Register"}
+                </Button>
+              </div>
+            </form>
+          </Form>
+        </div>
+      </ScrollArea>
     </div>
   );
 };
