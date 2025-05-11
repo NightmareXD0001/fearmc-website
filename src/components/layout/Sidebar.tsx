@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
-import { Menu, X, Home, Newspaper, BadgeAlert, MessageSquare, User, ShoppingCart, Calendar } from 'lucide-react';
+import { Menu, X, Home, Newspaper, BadgeAlert, MessageSquare, User, ShoppingCart, Calendar, Pickaxe } from 'lucide-react';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 
 const Sidebar = () => {
@@ -28,10 +28,9 @@ const Sidebar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: <Home size={20} /> },
     { name: "About", path: "/about", icon: <User size={20} /> },
-    { name: "Events", path: "/events", icon: <Calendar size={20} /> },
-    { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "News", path: "/news", icon: <Newspaper size={20} /> },
-    { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
+    { name: "Rules", path: "/rules", icon: <BadgeAlert size={15} /> },
+    { name: "Staff", path: "/staff", icon: <Pickaxe size={20} /> },
     { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
 
