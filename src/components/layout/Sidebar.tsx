@@ -29,7 +29,7 @@ const Sidebar = () => {
     { name: "Home", path: "/", icon: <Home size={20} /> },
     { name: "About", path: "/about", icon: <User size={20} /> },
     { name: "News", path: "/news", icon: <Newspaper size={20} /> },
-    { name: "Rules", path: "/rules", icon: <BadgeAlert size={15} /> },
+    { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "Staff", path: "/staff", icon: <Pickaxe size={20} /> },
     { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
@@ -91,8 +91,6 @@ const Sidebar = () => {
           <div className="mt-4 px-2">
             <div className="p-4 rounded-lg bg-fear-red/10 border border-fear-red/20">
               <p className="text-sm text-gray-400 text-center">
-                <span className="font-bungee block mb-2">JOIN NOW</span>
-                play.fearmc.net
               </p>
               <button 
                 onClick={handleJoinClick}
