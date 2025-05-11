@@ -1,41 +1,15 @@
 
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import PageLayout from "@/components/layout/PageLayout";
 import { useToast } from "@/hooks/use-toast";
-import EventRegistrationForm from "@/components/events/EventRegistrationForm";
-
-// Dummy events data
-const events = [
-  {
-    id: 1,
-    title: "FearMC Summer Tournament",
-    date: "2025-06-15",
-    description: "Join us for an epic PvP tournament with amazing prizes!",
-    image: "/placeholder.svg",
-    registrationOpen: true,
-  },
-  {
-    id: 2,
-    title: "Build Competition",
-    date: "2025-07-10",
-    description: "Show off your creativity in our monthly themed building contest. This month's theme: Medieval Castles!",
-    image: "/placeholder.svg",
-    registrationOpen: true,
-  },
-  {
-    id: 3,
-    title: "Survival Games",
-    date: "2025-08-05",
-    description: "Battle against other players in our custom survival games arena with special abilities and custom loot.",
-    image: "/placeholder.svg",
-    registrationOpen: false,
-  },
-];
+import { events, EventConfig } from "@/utils/events-config";
 
 const Events = () => {
   const { toast } = useToast();
-  const [selectedEvent, setSelectedEvent] = useState<number | null>(null);
+  const [selectedEvent, setSelectedEvent] = useState<EventConfig | null>(null);
+  const [dialogOpen, setDialogOpen] = useState(false);
 
   // Mock API call for server status
   const { data: serverStatus } = useQuery({
@@ -46,12 +20,25 @@ const Events = () => {
     },
   });
 
-  const handleRegister = (eventId: number) => {
-    setSelectedEvent(eventId);
+  const handleRegister = (event: EventConfig) => {
+    if (!event.registrationOpen) {
+      toast({
+        title: "Registration Closed",
+        description: "Registration is not currently open for this event.",
+      });
+      return;
+    }
+    
+    setSelectedEvent(event);
+    setDialogOpen(true);
   };
 
-  const handleCloseForm = () => {
-    setSelectedEvent(null);
+  const handleOpenForm = () => {
+    if (selectedEvent) {
+      // Open the form in a new tab
+      window.open(selectedEvent.formUrl, "_blank");
+      setDialogOpen(false);
+    }
   };
   
   return (
@@ -101,7 +88,7 @@ const Events = () => {
                   <p className="text-gray-300 mb-4 text-sm flex-grow">{event.description}</p>
                   <div className="mt-auto pt-4">
                     <button
-                      onClick={() => handleRegister(event.id)}
+                      onClick={() => handleRegister(event)}
                       disabled={!event.registrationOpen}
                       className={`w-full py-2 rounded-md font-medium transition-all ${
                         event.registrationOpen
@@ -118,18 +105,35 @@ const Events = () => {
           ))}
         </div>
 
-        {/* Show registration form when an event is selected */}
-        {selectedEvent !== null && (
-          <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="bg-fear-darkgray w-full max-w-xl rounded-xl overflow-hidden shadow-xl">
-              <EventRegistrationForm 
-                eventId={selectedEvent} 
-                eventName={events.find(e => e.id === selectedEvent)?.title || ''}
-                onClose={handleCloseForm}
-              />
+        {/* Registration Dialog */}
+        <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
+          <DialogContent className="bg-fear-darkgray border-fear-red/20">
+            <DialogHeader>
+              <DialogTitle className="text-white font-bungee text-xl">
+                {selectedEvent?.title} Registration
+              </DialogTitle>
+            </DialogHeader>
+            <div className="py-4">
+              <p className="text-gray-300 mb-6">
+                You will be redirected to our registration form. Please complete all required fields to secure your spot in this event.
+              </p>
+              <div className="flex justify-end space-x-3">
+                <button
+                  onClick={() => setDialogOpen(false)}
+                  className="px-4 py-2 rounded-md border border-white/10 text-white hover:bg-white/10 transition-colors"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={handleOpenForm}
+                  className="px-4 py-2 rounded-md bg-fear-red hover:bg-fear-red/80 text-white transition-colors"
+                >
+                  Continue to Form
+                </button>
+              </div>
             </div>
-          </div>
-        )}
+          </DialogContent>
+        </Dialog>
       </div>
     </PageLayout>
   );

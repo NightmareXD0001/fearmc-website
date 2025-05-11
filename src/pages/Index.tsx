@@ -27,7 +27,12 @@ const Index = () => {
     }
   }, [serverStatusData]);
 
-  // Safely calculate player percentage
+  // Handle Join Now button clicks
+  const handleJoinClick = () => {
+    setIsJoinModalOpen(true);
+  };
+
+  // Safely calculate player percentage using explicit number conversion
   const playerPercentage = serverStatus?.players?.online && serverStatus?.players?.max 
     ? (Number(serverStatus.players.online) / Number(serverStatus.players.max)) * 100
     : 0;
@@ -60,7 +65,7 @@ const Index = () => {
                 </p>
                 
                 <button
-                  onClick={() => setIsJoinModalOpen(true)}
+                  onClick={handleJoinClick}
                   className="px-8 py-3 rounded-full bg-fear-red hover:bg-fear-red/80 text-white font-medium text-lg transition-transform hover:scale-105 animate-pulse-light"
                 >
                   Join Now!
@@ -154,7 +159,7 @@ const Index = () => {
                   
                   <div className="pt-2">
                     <button
-                      onClick={() => setIsJoinModalOpen(true)}
+                      onClick={handleJoinClick}
                       className="w-full py-2 rounded-full bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-colors"
                     >
                       Join Now

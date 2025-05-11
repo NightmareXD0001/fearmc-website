@@ -2,10 +2,12 @@
 import { useState, useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Menu, X, Home, Newspaper, BadgeAlert, MessageSquare, User, ShoppingCart, Calendar } from 'lucide-react';
+import JoinServerModal from '@/components/ui/JoinServerModal';
 
 const Sidebar = () => {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
@@ -26,12 +28,16 @@ const Sidebar = () => {
   const navItems = [
     { name: "Home", path: "/", icon: <Home size={20} /> },
     { name: "About", path: "/about", icon: <User size={20} /> },
-    /*{ name: "Events", path: "/events", icon: <Calendar size={20} /> },*/
+    { name: "Events", path: "/events", icon: <Calendar size={20} /> },
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "News", path: "/news", icon: <Newspaper size={20} /> },
-    /*{ name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },*/
+    { name: "Contact", path: "/contact", icon: <MessageSquare size={20} /> },
     { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
+
+  const handleJoinClick = () => {
+    setIsJoinModalOpen(true);
+  };
 
   return (
     <>
@@ -58,8 +64,8 @@ const Sidebar = () => {
             </h1>
           </div>
 
-          {/* Navigation */}
-          <nav className="flex-1">
+          {/* Navigation - Made scrollable */}
+          <nav className="flex-1 overflow-y-auto pr-1">
             <ul className="space-y-2 px-2">
               {navItems.map((item) => (
                 <li key={item.name}>
@@ -83,12 +89,18 @@ const Sidebar = () => {
           </nav>
 
           {/* Footer */}
-          <div className="mt-auto px-2">
+          <div className="mt-4 px-2">
             <div className="p-4 rounded-lg bg-fear-red/10 border border-fear-red/20">
               <p className="text-sm text-gray-400 text-center">
                 <span className="font-bungee block mb-2">JOIN NOW</span>
                 play.fearmc.net
               </p>
+              <button 
+                onClick={handleJoinClick}
+                className="mt-2 w-full py-2 rounded-md bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-all"
+              >
+                Join Server
+              </button>
             </div>
           </div>
         </div>
@@ -101,6 +113,12 @@ const Sidebar = () => {
           onClick={toggleMobileSidebar}
         />
       )}
+
+      {/* Join Server Modal */}
+      <JoinServerModal 
+        isOpen={isJoinModalOpen}
+        onClose={() => setIsJoinModalOpen(false)}
+      />
     </>
   );
 };
