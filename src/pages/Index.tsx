@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import PageLayout from '@/components/layout/PageLayout';
@@ -32,10 +31,28 @@ const Index = () => {
     setIsJoinModalOpen(true);
   };
 
-  // Safely calculate player percentage using explicit number conversion
-  const playerPercentage = serverStatus?.players?.online && serverStatus?.players?.max 
-    ? (Number(serverStatus.players.online) / Number(serverStatus.players.max)) * 100
-    : 0;
+  // Safely calculate player percentage using safe conversion to numbers
+  const calculatePlayerPercentage = (): number => {
+    if (!serverStatus?.players?.online || !serverStatus?.players?.max) {
+      return 0;
+    }
+    
+    const online = typeof serverStatus.players.online === 'string' 
+      ? parseInt(serverStatus.players.online, 10) 
+      : serverStatus.players.online;
+    
+    const max = typeof serverStatus.players.max === 'string'
+      ? parseInt(serverStatus.players.max, 10)
+      : serverStatus.players.max;
+      
+    if (isNaN(online) || isNaN(max) || max === 0) {
+      return 0;
+    }
+    
+    return (online / max) * 100;
+  };
+
+  const playerPercentage = calculatePlayerPercentage();
 
   return (
     <PageLayout>

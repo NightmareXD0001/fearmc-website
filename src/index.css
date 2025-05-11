@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -27,8 +28,6 @@
     --fear-red: 354 83% 56%;
     --fear-black: 0, 0%, 9%;
     --fear-darkgray: 240, 1%, 15%;
-    --cursor-x: 0px;
-    --cursor-y: 0px;
   }
 
   .dark {
@@ -60,39 +59,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    cursor: none;
-  }
-  
-  /* Custom cursor */
-  .custom-cursor {
-    position: fixed;
-    width: 8px;
-    height: 8px;
-    background: hsl(var(--fear-red));
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 9999;
-    left: var(--cursor-x);
-    top: var(--cursor-y);
-    transform: translate(-50%, -50%);
-    transition: width 0.1s, height 0.1s;
-    box-shadow: 0 0 10px rgba(251, 60, 60, 0.8);
-    animation: pulse 2s infinite;
-  }
-  
-  @keyframes pulse {
-    0% { box-shadow: 0 0 5px rgba(251, 60, 60, 0.8); }
-    50% { box-shadow: 0 0 15px rgba(251, 60, 60, 0.8); }
-    100% { box-shadow: 0 0 5px rgba(251, 60, 60, 0.8); }
-  }
-  
-  a, button, input, textarea, select, [role="button"] {
-    cursor: none;
-  }
-  
-  .cursor-hover .custom-cursor {
-    width: 12px;
-    height: 12px;
   }
 }
 
