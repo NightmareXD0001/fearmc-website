@@ -1,21 +1,22 @@
-{
+
   "compilerOptions": {
-    "target": "ES2020",
-    "module": "CommonJS", // Change to CommonJS for compatibility with Node.js
-    "moduleResolution": "node", // Node module resolution
-    "esModuleInterop": true, // Enable interoperability between ES and CommonJS modules
+    "target": "ES2022",
+    "lib": ["ES2023"],
+    "module": "ESNext",
+
     "skipLibCheck": true,
-    "allowJs": true, // Allow JavaScript files
-    "noEmit": false, // Emit output for the backend
-    "outDir": "./dist", // Specify output directory for compiled files
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "isolatedModules": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
     "strict": true,
     "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "noUnusedParameters": false,
+    "noFallthroughCasesInSwitch": true
   },
-  "include": [
-    "api/**/*" // Ensure the serverless functions are included in the compilation
-  ],
-  "exclude": [
-    "node_modules" // Exclude node_modules
-  ]
-}
+  "include": ["vite.config.ts"]
