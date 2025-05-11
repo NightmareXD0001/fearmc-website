@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import PageLayout from '@/components/layout/PageLayout';
@@ -28,7 +29,7 @@ const Index = () => {
 
   // Safely calculate player percentage
   const playerPercentage = serverStatus?.players?.online && serverStatus?.players?.max 
-    ? (serverStatus.players.online / serverStatus.players.max) * 100
+    ? (Number(serverStatus.players.online) / Number(serverStatus.players.max)) * 100
     : 0;
 
   return (

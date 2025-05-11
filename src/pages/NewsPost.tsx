@@ -1,4 +1,3 @@
-
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
@@ -37,7 +36,7 @@ const NewsPost = () => {
     );
   }
 
-  const formattedDate = new Date(post.date).toLocaleDateString('en-US', { 
+  const formattedDate = new Date(post?.date || '').toLocaleDateString('en-US', { 
     year: 'numeric', 
     month: 'long', 
     day: 'numeric' 
