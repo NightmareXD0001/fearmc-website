@@ -93,7 +93,7 @@ const Sidebar = () => {
                 onClick={() => window.open("https://store.fearmc.net", "_blank")}
                 className="mt-2 w-full py-2 rounded-md bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-all"
               >
-                <span className="mr-3"><ShoppingCart size={20} /></span>Join Server
+<ShoppingCart size={20} />Join Server
               </button> 
             </div>
           </div>
