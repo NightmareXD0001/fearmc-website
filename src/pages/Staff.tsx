@@ -45,7 +45,7 @@ const Staff = () => {
                 </Avatar>
                 
                 <div className="flex-1 text-center md:text-left">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-2">
+                  <div className="flex flex-col mb-2">
                     <h3 className="font-bungee text-lg">{member.username}</h3>
                     <Badge className="self-center md:self-start mt-1 md:mt-0 bg-fear-red text-white border-none">
                       {member.role}
