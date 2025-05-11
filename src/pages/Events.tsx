@@ -13,7 +13,7 @@ const events = [
     date: "2025-06-15",
     description: "Join us for an epic PvP tournament with amazing prizes!",
     image: "/placeholder.svg",
-    registrationOpen: true,
+    registrationOpen: false,
   },
 ];
 
