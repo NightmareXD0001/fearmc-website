@@ -88,11 +88,11 @@ const Sidebar = () => {
 
           {/* Footer */}
           <div className="mt-4 px-2">
-            <div className="p-4 rounded-lg bg-fear-red/10 border border-fear-red/20">
+  <div className="p-4 rounded-lg bg-fear-red/10 border border-fear-red/20 flex justify-center">
               <button 
                 onClick={() => window.open("https://store.fearmc.net", "_blank")}
-                className="mt-2 w-full py-2 rounded-md bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-all"
-              >Join Server
+      className="py-2 px-6 rounded-md bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-all"
+    >Store
               </button> 
             </div>
           </div>
