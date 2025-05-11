@@ -13,6 +13,22 @@ const events = [
     date: "2025-06-15",
     description: "Join us for an epic PvP tournament with amazing prizes!",
     image: "/placeholder.svg",
+    registrationOpen: true,
+  },
+  {
+    id: 2,
+    title: "Build Competition",
+    date: "2025-07-10",
+    description: "Show off your creativity in our monthly themed building contest. This month's theme: Medieval Castles!",
+    image: "/placeholder.svg",
+    registrationOpen: true,
+  },
+  {
+    id: 3,
+    title: "Survival Games",
+    date: "2025-08-05",
+    description: "Battle against other players in our custom survival games arena with special abilities and custom loot.",
+    image: "/placeholder.svg",
     registrationOpen: false,
   },
 ];
@@ -81,19 +97,21 @@ const Events = () => {
                     {new Date(event.date).toLocaleDateString()}
                   </span>
                 </div>
-                <p className="text-gray-300 mb-4 text-sm flex-grow">{event.description}</p>
-                <div className="mt-auto">
-                  <button
-                    onClick={() => handleRegister(event.id)}
-                    disabled={!event.registrationOpen}
-                    className={`w-full py-2 rounded-md font-medium transition-all ${
-                      event.registrationOpen
-                        ? "bg-fear-red hover:bg-fear-red/80 text-white"
-                        : "bg-gray-700 text-gray-400 cursor-not-allowed"
-                    }`}
-                  >
-                    {event.registrationOpen ? "Register Now" : "Coming Soon"}
-                  </button>
+                <div className="flex flex-col flex-grow">
+                  <p className="text-gray-300 mb-4 text-sm flex-grow">{event.description}</p>
+                  <div className="mt-auto pt-4">
+                    <button
+                      onClick={() => handleRegister(event.id)}
+                      disabled={!event.registrationOpen}
+                      className={`w-full py-2 rounded-md font-medium transition-all ${
+                        event.registrationOpen
+                          ? "bg-fear-red hover:bg-fear-red/80 text-white"
+                          : "bg-gray-700 text-gray-400 cursor-not-allowed"
+                      }`}
+                    >
+                      {event.registrationOpen ? "Register Now" : "Coming Soon"}
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>

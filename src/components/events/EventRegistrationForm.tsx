@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { X } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
@@ -18,7 +17,7 @@ import { Input } from "@/components/ui/input";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
-import { discordWebhooks } from "@/utils/webhookConfig";
+import { sendToDiscordWebhook } from "@/utils/webhookConfig";
 
 interface EventRegistrationFormProps {
   eventId: number;
@@ -77,37 +76,29 @@ const EventRegistrationForm = ({ eventId, eventName, onClose }: EventRegistratio
         },
       };
 
-      const webhookUrl = discordWebhooks.eventRegistrations;
-      
-      if (webhookUrl) {
-        // Send to Discord webhook if configured
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            embeds: [embed],
-          }),
-        });
-        
+      // Use our secure webhook function
+      const result = await sendToDiscordWebhook('eventRegistrations', {
+        embeds: [embed],
+      });
+
+      if (result.success) {
         toast({
           title: "Registration successful!",
-          description: "Your registration has been sent to Discord.",
+          description: "Your registration has been submitted.",
         });
+        
+        // Close the form
+        onClose();
       } else {
-        // Mock submission
-        console.log("Registration data:", data);
-        console.log("Discord embed:", embed);
-        
         toast({
-          title: "Registration successful!",
-          description: "Your registration has been received. Note: Discord webhook not configured.",
+          title: "Registration received",
+          description: "Your registration has been logged, but couldn't be sent to Discord. Our team will process it manually.",
         });
+        console.log("Registration data (Discord webhook failed):", data);
+        
+        // Close the form on test environments even if webhook fails
+        onClose();
       }
-      
-      // Close the form
-      onClose();
     } catch (error) {
       console.error("Error submitting registration:", error);
       toast({
