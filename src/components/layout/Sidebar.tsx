@@ -31,7 +31,6 @@ const Sidebar = () => {
     { name: "News", path: "/news", icon: <Newspaper size={20} /> },
     { name: "Rules", path: "/rules", icon: <BadgeAlert size={20} /> },
     { name: "Staff", path: "/staff", icon: <Pickaxe size={20} /> },
-    { name: "Store", path: "https://store.fearmc.net", icon: <ShoppingCart size={20} /> },
   ];
 
   const handleJoinClick = () => {
@@ -90,14 +89,12 @@ const Sidebar = () => {
           {/* Footer */}
           <div className="mt-4 px-2">
             <div className="p-4 rounded-lg bg-fear-red/10 border border-fear-red/20">
-              <p className="text-sm text-gray-400 text-center">
-              </p>
               <button 
-                onClick={handleJoinClick}
+                onClick={() => window.open("https://store.fearmc.net", "_blank")}
                 className="mt-2 w-full py-2 rounded-md bg-fear-red hover:bg-fear-red/80 text-white font-medium transition-all"
               >
-                Join Server
-              </button>
+                Join Server<span className="mr-3"><ShoppingCart size={20} /></span>
+              </button> 
             </div>
           </div>
         </div>
