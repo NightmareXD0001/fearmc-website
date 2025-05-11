@@ -9,19 +9,19 @@ export interface StaffMember {
 // Edit this array to add, remove or modify staff members
 export const staffMembers: StaffMember[] = [
   {
-    username: "Notch",
+    username: "Welsin",
     role: "Server Owner",
     description: "Creator and founder of FearMC. Responsible for server management and development.",
     joinDate: "2024-01-01"
   },
   {
-    username: "jeb_",
-    role: "Head Admin",
-    description: "Main administrator handling day-to-day operations and staff management.",
+    username: "XNightmareXD",
+    role: "Developer",
+    description: "Main developer and manager handling day-to-day operations and staff management.",
     joinDate: "2024-01-15"
   },
   {
-    username: "Dinnerbone",
+    username: "Meedo",
     role: "Developer",
     description: "Lead developer for custom plugins and server features.",
     joinDate: "2024-02-01"
