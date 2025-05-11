@@ -7,8 +7,7 @@ import { newsPosts, NewsPost as NewsPostType } from '@/utils/newsPosts';
 import { Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { marked } from 'marked';
-import DOMPurify from 'dompurify';
+import ReactMarkdown from 'react-markdown';
 
 const NewsPost = () => {
   const { id } = useParams();
@@ -43,13 +42,6 @@ const NewsPost = () => {
     month: 'long', 
     day: 'numeric' 
   });
-
-  // Parse markdown content to HTML
-  const renderMarkdown = (content: string) => {
-    const rawHtml = marked(content);
-    const cleanHtml = DOMPurify.sanitize(rawHtml);
-    return { __html: cleanHtml };
-  };
 
   return (
     <PageLayout>
@@ -100,10 +92,9 @@ const NewsPost = () => {
             
             {/* Content */}
             <div className="prose prose-invert prose-sm sm:prose-base max-w-none">
-              <div 
-                className="text-gray-300 markdown-content"
-                dangerouslySetInnerHTML={renderMarkdown(post.content)}
-              />
+              <div className="text-gray-300 markdown-content">
+                <ReactMarkdown>{post.content}</ReactMarkdown>
+              </div>
             </div>
             
             {/* Tags */}
