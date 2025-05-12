@@ -30,5 +30,5 @@ export const staffMembers: StaffMember[] = [
 
 // Get the URL for a player's Minecraft skin avatar
 export const getPlayerAvatarUrl = (username: string, size: number = 100) => {
-  return `https://minotar.net/avatar/${username}/${size}.png`;
+  return `https://minotar.net/helm/${username}/${size}.png`;
 };
