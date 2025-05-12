@@ -71,9 +71,9 @@ const Events = () => {
                   <span className={`px-3 py-1 rounded-full text-xs font-medium ${
                     event.registrationOpen
                       ? "bg-green-500/70 text-white"
-                      : "bg-gray-500/70 text-white"
+                      : "bg-fear-red text-white"
                   }`}>
-                    {event.registrationOpen ? "Registration Open" : "Coming Soon"}
+                    {event.registrationOpen ? "Registration Open" : "Registraton Closed"}
                   </span>
                 </div>
               </div>
