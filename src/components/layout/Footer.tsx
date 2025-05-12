@@ -2,9 +2,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FileText, Heart, Github, Headset } from 'lucide-react';
-import type { discord } from 'simple-icons';
-
-
+import { FaDiscord } from 'react-icons/fa';
 interface FooterProps {
   visible?: boolean;
 }
@@ -96,7 +94,7 @@ const Footer = ({ visible = true }: FooterProps) => {
               className="text-gray-400 hover:text-[#5865F2] transition-colors"
               aria-label="Discord"
             >
-              <discord size={18} />
+<FaDiscord size={18} />
             </a>
             <a 
               href="https://github.com" 
