@@ -15,34 +15,16 @@ export const staffMembers: StaffMember[] = [
     joinDate: "2024-01-01"
   },
   {
-    username: "XNightmareXD",
-    role: "Developer",
-    description: "Main developer and manager handling day-to-day operations and staff management.",
-    joinDate: "2024-01-15"
-  },
-  {
     username: "Meedo",
-    role: "Developer",
-    description: "Lead developer for custom plugins and server features.",
+    role: "Lead Developer",
+    description: "Jack has been with the EggWars team from the early days. He worked on the latest beta update, helped develop the new FFA game-mode, and redesigned our lobbies into inviting spaces.",
     joinDate: "2024-02-01"
   },
   {
-    username: "Xisuma",
-    role: "Senior Moderator",
-    description: "Experienced moderator responsible for training new staff and handling difficult situations.",
-    joinDate: "2024-02-15"
-  },
-  {
-    username: "GrumM",
-    role: "Moderator",
-    description: "Assists with player reports and enforces server rules.",
-    joinDate: "2024-03-01"
-  },
-  {
-    username: "Mumbo",
-    role: "Builder",
-    description: "Creates amazing spawn areas and event arenas.",
-    joinDate: "2024-03-15"
+    username: "XNightmareXD",
+    role: "Developer",
+    description: "Nightmare is the developer behind our website and the Practice game-mode. He built the Practice game-mode entirely from scratch, creating a dedicated space where players can fine-tune their skills.",
+    joinDate: "2024-01-15"
   }
 ];
 
