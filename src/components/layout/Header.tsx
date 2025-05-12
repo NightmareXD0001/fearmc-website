@@ -56,7 +56,7 @@ const Header = ({ serverStatus }: HeaderProps) => {
               className="hidden sm:flex items-center justify-center h-9 px-4 rounded-full bg-[#5865F2] hover:bg-[#4752C4] transition-colors text-white text-sm"
             >
 <FaDiscord size={18} />
-              <span>Discord</span>
+              <span> Discord</span>
             </a>
 
             {/* Login/User Button */}
