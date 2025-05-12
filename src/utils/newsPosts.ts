@@ -180,38 +180,36 @@ Keep building, creating, and inspiring our community!`,
 ## What We're Looking For
 
 **Requirements:**
-- At least 16 years of age
+- At least 15 years of age
 - Active on the server for minimum 2 months
 - No previous bans or serious warnings
 - Ability to commit at least 6 hours weekly
 - Strong communication skills
 - Conflict resolution abilities
 - Basic understanding of Minecraft mechanics
+- Ability to record gameplay
 
 **Responsibilities:**
 - Monitoring the server for rule violations
 - Assisting players with questions and issues
-- Participating in staff meetings
 - Reporting bugs and suggesting improvements
 - Helping with events and special activities
 
 ## Application Process
 
-1. Fill out the application form on our website
-2. Initial review by senior staff
-3. Interview in our Discord server
-4. Training period (1-2 weeks)
-5. Full moderator status upon successful completion
-
-Staff members receive special perks including exclusive commands, staff-only Discord channels, and early access to new features and updates.
+1. Fill out the application form [here](https://tally.so/r/3xggor).
+2. Initial review and shortlisting by senior staff. If denied you will be notified.
+3. Interview in our Discord server.
+4. Training period (1-2 weeks).
+5. Full moderator status upon successful completion.
 
 We value diversity and encourage players from all backgrounds and time zones to apply. Our team should represent our global player base to ensure 24/7 coverage and support.
 
-Applications will remain open until May 30th. Successful candidates will be notified by June 7th.
+Successful candidates will be notified within 2 weeks.
 
 Join us in making FearMC the best Minecraft community it can be!`,
     date: '2025-05-15',
-    author: 'Admin',
+    author: 'Management',
     image: '/news/staff-recruitment.png',
     category: 'Announcements',
     tags: ['staff', 'recruitment']
