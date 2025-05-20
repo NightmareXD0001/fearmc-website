@@ -1,12 +1,13 @@
-// src/components/Layout.tsx
-import Header from "./layout/Header";
+import { Outlet } from "react-router-dom";
+import Header from '@/components/layout/Header';
 
-const Layout = ({ children }: { children: React.ReactNode }) => {
+
+const Layout = () => {
   return (
     <>
       <Header />
       <main className="pt-20 px-4 md:px-6">
-        {children}
+        <Outlet />
       </main>
     </>
   );
