@@ -42,7 +42,6 @@ const NewsPost = () => {
 
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus} />
       
       <div className="container mx-auto px-4 py-8">
         <Link to="/news" className="text-fear-red hover:text-fear-red/80 flex items-center mb-6">
