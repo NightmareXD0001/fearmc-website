@@ -37,13 +37,9 @@ const Index = () => {
       return 0;
     }
     
-    const online = typeof serverStatus.players.online === 'string' 
-      ? parseInt(serverStatus.players.online, 10) 
-      : serverStatus.players.online;
-    
-    const max = typeof serverStatus.players.max === 'string'
-      ? parseInt(serverStatus.players.max, 10)
-      : serverStatus.players.max;
+    // Ensure we're working with numbers
+    const online = Number(serverStatus.players.online);
+    const max = Number(serverStatus.players.max);
       
     if (isNaN(online) || isNaN(max) || max === 0) {
       return 0;
@@ -54,9 +50,12 @@ const Index = () => {
 
   const playerPercentage = calculatePlayerPercentage();
 
+  // Example announcement - this could come from an API or config later
+  const announcement = "Season 4 starts on November 1st! Join now for early access rewards!";
+
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus} />
+      <Header serverStatus={serverStatus} announcement={announcement} />
       
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}

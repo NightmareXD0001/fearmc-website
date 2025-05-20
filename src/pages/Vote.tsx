@@ -1,0 +1,79 @@
+
+import { useState, useEffect } from 'react';
+import PageLayout from '@/components/layout/PageLayout';
+import { voteSites, voteRewardMessage } from '@/utils/voteConfig';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Bell, ExternalLink } from 'lucide-react';
+import Header from '@/components/layout/Header';
+
+const Vote = () => {
+  const handleVoteClick = (url: string) => {
+    window.open(url, '_blank');
+  };
+
+  return (
+    <PageLayout>
+      <Header serverStatus={null} />
+      <div className="container mx-auto py-8">
+        <div className="mb-8">
+          <h1 className="text-4xl font-bungee text-white mb-2">
+            <span className="text-fear-red text-glow">Vote</span> for FearMC
+          </h1>
+          <p className="text-gray-400 max-w-3xl">
+            Support our server by voting on these sites. Each vote helps us grow and lets more players discover FearMC!
+          </p>
+        </div>
+
+        {/* Vote Reward Banner */}
+        <div className="glass-card bg-fear-red/10 border border-fear-red/30 rounded-xl p-4 mb-8 flex items-center">
+          <Bell className="mr-3 text-fear-red h-5 w-5 animate-pulse" />
+          <p className="text-white font-medium">{voteRewardMessage}</p>
+        </div>
+        
+        {/* Vote Sites Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {voteSites.map((site) => (
+            <Card 
+              key={site.name} 
+              className="bg-fear-darkgray/50 backdrop-blur-sm border border-white/5 hover:border-fear-red/30 transition-all cursor-pointer"
+              onClick={() => handleVoteClick(site.url)}
+            >
+              <CardHeader className="pb-4">
+                <CardTitle className="text-white text-lg">{site.name}</CardTitle>
+                {site.description && (
+                  <CardDescription className="text-gray-400">{site.description}</CardDescription>
+                )}
+              </CardHeader>
+              <CardContent>
+                {site.imageUrl ? (
+                  <div className="h-32 flex items-center justify-center bg-black/20 rounded-md overflow-hidden">
+                    <img 
+                      src={site.imageUrl} 
+                      alt={site.name} 
+                      className="max-h-full max-w-full object-contain" 
+                      onError={(e) => {
+                        e.currentTarget.src = "/placeholder.svg";
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <div className="h-32 flex items-center justify-center bg-black/20 rounded-md">
+                    <span className="text-gray-400">No image available</span>
+                  </div>
+                )}
+              </CardContent>
+              <CardFooter className="pt-0">
+                <div className="flex items-center text-fear-red text-sm font-medium">
+                  <ExternalLink size={14} className="mr-1" />
+                  <span>Vote Now</span>
+                </div>
+              </CardFooter>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </PageLayout>
+  );
+};
+
+export default Vote;
