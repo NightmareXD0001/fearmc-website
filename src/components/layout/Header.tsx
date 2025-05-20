@@ -5,7 +5,6 @@ import { Bell } from 'lucide-react';
 import { ServerStatus } from '@/utils/serverApi';
 import ServerStatusIndicator from '../ui/ServerStatusIndicator';
 import { FaDiscord } from 'react-icons/fa';
-import JoinServerModal from '@/components/ui/JoinServerModal';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnnouncementConfig } from '@/utils/announcementConfig'; 
@@ -17,7 +16,6 @@ interface HeaderProps {
 }
 
 const Header = ({ serverStatus, announcement }: HeaderProps) => {
-  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
   const [isAnnouncementOpen, setIsAnnouncementOpen] = useState(false);
 
   return (
@@ -87,29 +85,23 @@ const Header = ({ serverStatus, announcement }: HeaderProps) => {
         )}
       </div>
 
-      {/* Join Server Modal */}
-      <JoinServerModal 
-        isOpen={isJoinModalOpen}
-        onClose={() => setIsJoinModalOpen(false)}
-      />
-
       {/* Announcement Dialog */}
       {announcement && (
         <Dialog open={isAnnouncementOpen} onOpenChange={setIsAnnouncementOpen}>
-          <DialogContent className="bg-fear-black/95 border-fear-red/30 text-white max-w-2xl max-h-[80vh] flex flex-col">
+          <DialogContent className="bg-fear-black/95 border-fear-red/30 text-white max-w-2xl max-h-[80vh] overflow-hidden">
             <DialogHeader className="mb-2">
               <DialogTitle className="text-2xl font-bungee text-fear-red">
                 {announcement.title}
               </DialogTitle>
             </DialogHeader>
-            <ScrollArea className="flex-grow pr-4 overflow-auto">
-              <div className="prose prose-invert max-w-none markdown-content">
+            <ScrollArea className="max-h-[50vh] pr-4 overflow-auto">
+              <div className="prose prose-invert max-w-none prose-headings:text-fear-red prose-a:text-fear-red prose-strong:text-white">
                 <ReactMarkdown>
                   {announcement.longText}
                 </ReactMarkdown>
               </div>
             </ScrollArea>
-            <div className="text-right mt-6 pt-4 border-t border-fear-red/20 flex justify-end">
+            <div className="mt-6 pt-4 border-t border-fear-red/20 flex justify-end">
               <button 
                 onClick={() => setIsAnnouncementOpen(false)}
                 className="px-4 py-2 rounded-full bg-fear-red hover:bg-fear-red/80 text-white text-sm transition-colors"
