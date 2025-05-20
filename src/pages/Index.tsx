@@ -1,14 +1,22 @@
+
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import PageLayout from '@/components/layout/PageLayout';
 import NewsCard from '@/components/ui/NewsCard';
 import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
-import { getServerStatus, ServerStatus } from '@/utils/serverApi';
+import { getServerStatus } from '@/utils/serverApi';
 import { newsPosts } from '@/utils/newsPosts';
 
 const Index = () => {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
+
+  // Fetch server status
+  const { data: serverStatus } = useQuery({
+    queryKey: ["serverStatus"],
+    queryFn: getServerStatus,
+    refetchInterval: 60000,
+  });
 
   // Handle Join Now button clicks
   const handleJoinClick = () => {

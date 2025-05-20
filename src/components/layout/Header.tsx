@@ -68,14 +68,6 @@ const Header = ({ serverStatus, announcement }: HeaderProps) => {
               <FaDiscord size={18} />
               <span> Discord</span>
             </a>
-
-            {/* Join Now Button */}
-            <button 
-              onClick={() => setIsJoinModalOpen(true)} 
-              className="flex items-center justify-center h-9 px-4 rounded-full bg-fear-red hover:bg-fear-red/80 transition-colors text-white text-sm"
-            >
-              Play Now
-            </button>
           </div>
         </div>
 
