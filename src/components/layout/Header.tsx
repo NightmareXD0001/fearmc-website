@@ -88,28 +88,31 @@ const Header = ({ serverStatus, announcement }: HeaderProps) => {
       {/* Announcement Dialog */}
       {announcement && (
         <Dialog open={isAnnouncementOpen} onOpenChange={setIsAnnouncementOpen}>
-          <DialogContent className="bg-fear-black/95 border-fear-red/30 text-white max-w-2xl max-h-[80vh] overflow-hidden">
-            <DialogHeader className="mb-2">
-              <DialogTitle className="text-2xl font-bungee text-fear-red">
-                {announcement.title}
-              </DialogTitle>
-            </DialogHeader>
-            <ScrollArea className="max-h-[50vh] pr-4 overflow-auto">
-              <div className="prose prose-invert max-w-none prose-headings:text-fear-red prose-a:text-fear-red prose-strong:text-white">
-                <ReactMarkdown>
-                  {announcement.longText}
-                </ReactMarkdown>
-              </div>
-            </ScrollArea>
-            <div className="mt-6 pt-4 border-t border-fear-red/20 flex justify-end">
-              <button 
-                onClick={() => setIsAnnouncementOpen(false)}
-                className="px-4 py-2 rounded-full bg-fear-red hover:bg-fear-red/80 text-white text-sm transition-colors"
-              >
-                Close
-              </button>
-            </div>
-          </DialogContent>
+          <DialogContent className="bg-gradient-to-br from-fear-black to-fear-black/80 border border-fear-red/40 text-white max-w-2xl rounded-xl shadow-xl p-6 md:p-8">
+  <DialogHeader className="mb-4">
+    <DialogTitle className="text-3xl font-bungee text-fear-red drop-shadow">
+      {announcement.title}
+    </DialogTitle>
+  </DialogHeader>
+
+  <ScrollArea className="max-h-[55vh] pr-3">
+    <div className="prose prose-invert max-w-none prose-headings:text-fear-red prose-a:text-fear-red prose-strong:text-white text-gray-200 text-base leading-relaxed space-y-4">
+      <ReactMarkdown>
+        {announcement.longText}
+      </ReactMarkdown>
+    </div>
+  </ScrollArea>
+
+  <div className="mt-6 pt-4 border-t border-fear-red/20 flex justify-end">
+    <button
+      onClick={() => setIsAnnouncementOpen(false)}
+      className="px-5 py-2.5 rounded-full bg-fear-red hover:bg-fear-red/80 text-white text-sm font-semibold shadow transition-all duration-200"
+    >
+      Close
+    </button>
+  </div>
+</DialogContent>
+
         </Dialog>
       )}
     </header>
