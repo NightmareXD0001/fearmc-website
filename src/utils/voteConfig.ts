@@ -2,46 +2,32 @@
 export interface VoteSite {
   name: string;
   url: string;
-  description?: string;
-  imageUrl?: string;
 }
 
 export const voteSites: VoteSite[] = [
   {
     name: "TopMinecraftServers",
-    url: "https://topminecraftservers.com/vote/12345",
-    description: "Vote on Top Minecraft Servers",
-    imageUrl: "/vote/topmc.png"
+    url: "https://topminecraftservers.com/vote/12345"
   },
   {
     name: "MinecraftMP",
-    url: "https://minecraft-mp.com/vote/12345",
-    description: "Vote on MinecraftMP",
-    imageUrl: "/vote/minecraftmp.png"
+    url: "https://minecraft-mp.com/vote/12345"
   },
   {
     name: "Planet Minecraft",
-    url: "https://planetminecraft.com/vote/12345",
-    description: "Vote on Planet Minecraft",
-    imageUrl: "/vote/planetmc.png"
+    url: "https://planetminecraft.com/vote/12345"
   },
   {
     name: "Minecraft Servers",
-    url: "https://minecraftservers.org/vote/12345",
-    description: "Vote on Minecraft Servers",
-    imageUrl: "/vote/mcservers.png"
+    url: "https://minecraftservers.org/vote/12345"
   },
   {
     name: "Minecraft Server List",
-    url: "https://minecraft-server-list.com/vote/12345",
-    description: "Vote on Minecraft Server List",
-    imageUrl: "/vote/mcserverlist.png"
+    url: "https://minecraft-server-list.com/vote/12345"
   },
   {
     name: "ServerPact",
-    url: "https://serverpact.com/vote/12345",
-    description: "Vote on ServerPact",
-    imageUrl: "/vote/serverpact.png"
+    url: "https://serverpact.com/vote/12345"
   }
 ];
 

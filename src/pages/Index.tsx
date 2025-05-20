@@ -7,6 +7,7 @@ import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { getServerStatus, ServerStatus } from '@/utils/serverApi';
 import { newsPosts } from '@/utils/newsPosts';
+import { announcement } from '@/utils/announcementConfig';
 
 const Index = () => {
   const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
@@ -50,12 +51,9 @@ const Index = () => {
 
   const playerPercentage = calculatePlayerPercentage();
 
-  // Example announcement - this could come from an API or config later
-  const announcement = "Season 4 starts on November 1st! Join now for early access rewards!";
-
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus} announcement={announcement} />
+      <Header serverStatus={serverStatus} announcement={announcement.enabled ? announcement : null} />
       
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}

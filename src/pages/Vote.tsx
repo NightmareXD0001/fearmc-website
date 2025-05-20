@@ -1,19 +1,29 @@
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
 import { voteSites, voteRewardMessage } from '@/utils/voteConfig';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bell, ExternalLink } from 'lucide-react';
 import Header from '@/components/layout/Header';
+import { getServerStatus } from '@/utils/serverApi';
+import { useQuery } from '@tanstack/react-query';
+import { announcement } from '@/utils/announcementConfig';
 
 const Vote = () => {
   const handleVoteClick = (url: string) => {
     window.open(url, '_blank');
   };
 
+  // Fetch server status
+  const { data: serverStatus } = useQuery({
+    queryKey: ["serverStatus"],
+    queryFn: getServerStatus,
+    refetchInterval: 60000,
+  });
+
   return (
     <PageLayout>
-      <Header serverStatus={null} />
+      <Header serverStatus={serverStatus || null} announcement={announcement.enabled ? announcement : null} />
       <div className="container mx-auto py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bungee text-white mb-2">
@@ -38,31 +48,10 @@ const Vote = () => {
               className="bg-fear-darkgray/50 backdrop-blur-sm border border-white/5 hover:border-fear-red/30 transition-all cursor-pointer"
               onClick={() => handleVoteClick(site.url)}
             >
-              <CardHeader className="pb-4">
+              <CardHeader>
                 <CardTitle className="text-white text-lg">{site.name}</CardTitle>
-                {site.description && (
-                  <CardDescription className="text-gray-400">{site.description}</CardDescription>
-                )}
               </CardHeader>
-              <CardContent>
-                {site.imageUrl ? (
-                  <div className="h-32 flex items-center justify-center bg-black/20 rounded-md overflow-hidden">
-                    <img 
-                      src={site.imageUrl} 
-                      alt={site.name} 
-                      className="max-h-full max-w-full object-contain" 
-                      onError={(e) => {
-                        e.currentTarget.src = "/placeholder.svg";
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <div className="h-32 flex items-center justify-center bg-black/20 rounded-md">
-                    <span className="text-gray-400">No image available</span>
-                  </div>
-                )}
-              </CardContent>
-              <CardFooter className="pt-0">
+              <CardFooter>
                 <div className="flex items-center text-fear-red text-sm font-medium">
                   <ExternalLink size={14} className="mr-1" />
                   <span>Vote Now</span>
