@@ -5,7 +5,6 @@ import { staffMembers, getPlayerAvatarUrl, getGroupedStaffMembers } from '@/util
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import { Badge } from '@/components/ui/badge';
 import { Calendar, Users } from 'lucide-react';
-import Header from '@/components/layout/Header';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import type { StaffMember } from '@/utils/staffUtils';
@@ -31,7 +30,6 @@ const Staff = () => {
 
   return (
     <PageLayout>
-      <Header serverStatus={null} />
       <div className="container mx-auto py-8">
         <div className="mb-10">
           <h1 className="text-4xl font-bungee text-white mb-2">
