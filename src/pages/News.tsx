@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
 import NewsCard from '@/components/ui/NewsCard';
 import { newsPosts } from '@/utils/newsPosts';
 
@@ -15,7 +14,6 @@ const News = () => {
 
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus} />
       
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8 text-center">
