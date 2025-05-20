@@ -30,6 +30,7 @@ const App = () => {
 
 <BrowserRouter>
   <Routes>
+    {/* Routes using the layout */}
     <Route element={<Layout />}>
       <Route path="/" element={<Index />} />
       <Route path="/rules" element={<Rules />} />
@@ -42,8 +43,10 @@ const App = () => {
       <Route path="/vote" element={<Vote />} />
       <Route path="/privacy-policy" element={<PrivacyPolicy />} />
       <Route path="/terms-of-service" element={<TermsOfService />} />
-      <Route path="*" element={<NotFound />} />
     </Route>
+
+    {/* NotFound route without Layout */}
+    <Route path="*" element={<NotFound />} />
   </Routes>
 </BrowserRouter>
       </TooltipProvider>
