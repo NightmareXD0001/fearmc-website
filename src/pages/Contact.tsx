@@ -2,8 +2,6 @@
 import { useState } from 'react';
 import { toast } from 'sonner';
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -33,9 +31,7 @@ const Contact = () => {
   };
 
   return (
-    <PageLayout>
-      <Header serverStatus={null} />
-      
+    <PageLayout>      
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
           <div className="mb-8 text-center">
