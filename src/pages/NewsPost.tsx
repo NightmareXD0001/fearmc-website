@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
 import { newsPosts, NewsPost as NewsPostType } from '@/utils/newsPosts';
 import { Calendar, Tag, User } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -22,7 +21,6 @@ const NewsPost = () => {
   if (!post) {
     return (
       <PageLayout>
-        <Header serverStatus={serverStatus} />
         <div className="container mx-auto px-4 py-16 text-center">
           <h1 className="text-2xl font-bold text-white mb-4">News Post Not Found</h1>
           <p className="text-gray-300 mb-8">The news post you're looking for doesn't exist or has been removed.</p>
