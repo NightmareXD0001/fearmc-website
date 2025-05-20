@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
 import { serverRules } from '@/utils/rulesConfig';
 import { ChevronDown, ChevronUp } from 'lucide-react';
 import { 
@@ -25,7 +24,6 @@ const Rules = () => {
 
   return (
     <PageLayout>
-      <Header serverStatus={null} />
       
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-3xl mx-auto">
