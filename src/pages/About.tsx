@@ -1,11 +1,8 @@
 
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
-
 const About = () => {
   return (
     <PageLayout>
-      <Header serverStatus={null} />
       
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-4xl mx-auto">
