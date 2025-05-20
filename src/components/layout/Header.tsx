@@ -7,6 +7,7 @@ import ServerStatusIndicator from '../ui/ServerStatusIndicator';
 import { FaDiscord } from 'react-icons/fa';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { AnnouncementConfig } from '@/utils/announcementConfig'; 
 import ReactMarkdown from 'react-markdown';
 
@@ -103,18 +104,20 @@ const Header = ({ serverStatus, announcement }: HeaderProps) => {
       {/* Announcement Dialog */}
       {announcement && (
         <Dialog open={isAnnouncementOpen} onOpenChange={setIsAnnouncementOpen}>
-          <DialogContent className="bg-fear-black/95 border-fear-red/30 text-white max-w-2xl">
-            <DialogHeader>
+          <DialogContent className="bg-fear-black/95 border-fear-red/30 text-white max-w-2xl max-h-[80vh] flex flex-col">
+            <DialogHeader className="mb-2">
               <DialogTitle className="text-2xl font-bungee text-fear-red">
                 {announcement.title}
               </DialogTitle>
             </DialogHeader>
-            <div className="prose prose-invert max-w-none">
-              <ReactMarkdown>
-                {announcement.longText}
-              </ReactMarkdown>
-            </div>
-            <div className="text-right mt-4">
+            <ScrollArea className="flex-grow pr-4 overflow-auto">
+              <div className="prose prose-invert max-w-none markdown-content">
+                <ReactMarkdown>
+                  {announcement.longText}
+                </ReactMarkdown>
+              </div>
+            </ScrollArea>
+            <div className="text-right mt-6 pt-4 border-t border-fear-red/20 flex justify-end">
               <button 
                 onClick={() => setIsAnnouncementOpen(false)}
                 className="px-4 py-2 rounded-full bg-fear-red hover:bg-fear-red/80 text-white text-sm transition-colors"

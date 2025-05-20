@@ -4,26 +4,14 @@ import PageLayout from '@/components/layout/PageLayout';
 import { voteSites, voteRewardMessage } from '@/utils/voteConfig';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Bell, ExternalLink } from 'lucide-react';
-import Header from '@/components/layout/Header';
-import { getServerStatus } from '@/utils/serverApi';
-import { useQuery } from '@tanstack/react-query';
-import { announcement } from '@/utils/announcementConfig';
 
 const Vote = () => {
   const handleVoteClick = (url: string) => {
     window.open(url, '_blank');
   };
 
-  // Fetch server status
-  const { data: serverStatus } = useQuery({
-    queryKey: ["serverStatus"],
-    queryFn: getServerStatus,
-    refetchInterval: 60000,
-  });
-
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus || null} announcement={announcement.enabled ? announcement : null} />
       <div className="container mx-auto py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bungee text-white mb-2">

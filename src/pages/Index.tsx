@@ -1,60 +1,22 @@
 import { useState, useEffect } from 'react';
 import { useQuery } from '@tanstack/react-query';
 import PageLayout from '@/components/layout/PageLayout';
-import Header from '@/components/layout/Header';
 import NewsCard from '@/components/ui/NewsCard';
 import DiscordCard from '@/components/ui/DiscordCard';
 import JoinServerModal from '@/components/ui/JoinServerModal';
 import { getServerStatus, ServerStatus } from '@/utils/serverApi';
 import { newsPosts } from '@/utils/newsPosts';
-import { announcement } from '@/utils/announcementConfig';
 
 const Index = () => {
-  const [serverStatus, setServerStatus] = useState<ServerStatus | null>(null);
   const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-
-  // Using React Query to fetch server status
-  const { data: serverStatusData, isLoading: serverStatusLoading } = useQuery({
-    queryKey: ["serverStatus"],
-    queryFn: getServerStatus,
-    refetchInterval: 60000, // Refetch every minute
-  });
-
-  // Update local state when query data changes
-  useEffect(() => {
-    if (serverStatusData) {
-      setServerStatus(serverStatusData);
-    }
-  }, [serverStatusData]);
 
   // Handle Join Now button clicks
   const handleJoinClick = () => {
     setIsJoinModalOpen(true);
   };
 
-  // Safely calculate player percentage using safe conversion to numbers
-  const calculatePlayerPercentage = (): number => {
-    if (!serverStatus?.players?.online || !serverStatus?.players?.max) {
-      return 0;
-    }
-    
-    // Ensure we're working with numbers
-    const online = Number(serverStatus.players.online);
-    const max = Number(serverStatus.players.max);
-      
-    if (isNaN(online) || isNaN(max) || max === 0) {
-      return 0;
-    }
-    
-    return (online / max) * 100;
-  };
-
-  const playerPercentage = calculatePlayerPercentage();
-
   return (
     <PageLayout>
-      <Header serverStatus={serverStatus} announcement={announcement.enabled ? announcement : null} />
-      
       <div className="container mx-auto px-4 py-8">
         {/* Hero Section */}
         <section className="mb-12">
