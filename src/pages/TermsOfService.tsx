@@ -1,4 +1,3 @@
-
 import PageLayout from '@/components/layout/PageLayout';
 
 const TermsOfService = () => {
@@ -7,99 +6,130 @@ const TermsOfService = () => {
       <div className="container mx-auto py-12 px-4">
         <div className="max-w-4xl mx-auto glass-card p-8 rounded-xl">
           <h1 className="text-3xl font-bold mb-6 text-fear-red">Terms of Service</h1>
-          
+
           <div className="prose prose-invert max-w-none">
-            <p className="mb-4">
-              Last updated: May 10, 2025
-            </p>
-            
+            <p className="mb-4">Last updated: May 10, 2025</p>
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">1. Agreement to Terms</h2>
+              <h2 className="text-xl font-bold mb-4">1. Acceptance of Terms</h2>
               <p>
-                By accessing or using the FearMC website and Minecraft server, you agree to be bound by these 
-                Terms of Service and all applicable laws and regulations. If you do not agree with any of these terms, 
-                you are prohibited from using or accessing FearMC's services.
+                By accessing or using the FearMC network, including our Minecraft server and online store,
+                you agree to comply with and be bound by these Terms of Service ("Terms"). If you do not agree
+                to these Terms, you may not use our services.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">2. Use License</h2>
+              <h2 className="text-xl font-bold mb-4">2. Compliance with Rules and Law</h2>
               <p className="mb-3">
-                Permission is granted to temporarily access the materials on FearMC's website for personal, 
-                non-commercial viewing only. This is the grant of a license, not a transfer of title, and under this 
-                license you may not:
+                All users must adhere to:
               </p>
               <ul className="list-disc pl-5 mb-4">
-                <li>Modify or copy the materials</li>
-                <li>Use the materials for any commercial purpose or for any public display</li>
-                <li>Attempt to decompile or reverse engineer any software contained on FearMC's servers</li>
-                <li>Remove any copyright or other proprietary notations from the materials</li>
-                <li>Transfer the materials to another person or "mirror" the materials on any other server</li>
+                <li>
+                  <strong>FearMC Rules:</strong> You must follow all in-game and community rules, as outlined on our 
+                  official Rules page. The use of the store or other services does not exempt you from disciplinary 
+                  action.
+                </li>
+                <li>
+                  <strong>Applicable Laws:</strong> You must comply with all relevant local, national, and international 
+                  cyber laws. Violation may result in immediate account termination and reporting to authorities.
+                </li>
               </ul>
+            </section>
+
+            <section className="mb-6">
+              <h2 className="text-xl font-bold mb-4">3. Store Purchases, Reimbursements, and Refunds</h2>
+              <p className="mb-4">
+                The following conditions apply to all purchases made through the FearMC store.
+              </p>
+
+              <h3 className="font-semibold mb-2">Reimbursements:</h3>
+              <p className="mb-2">You may be eligible for reimbursement under the following circumstances:</p>
+              <ul className="list-disc pl-5 mb-4">
+                <li>Store-bought items lost due to accidental server crashes.</li>
+                <li>Store-bought items lost as a result of rule-breaking by other players.</li>
+                <li>Store-bought items lost due to verified bugs or glitches.</li>
+              </ul>
+
+              <h3 className="font-semibold mb-2">Refunds:</h3>
               <p>
-                This license shall automatically terminate if you violate any of these restrictions and may be 
-                terminated by FearMC at any time.
+                Refunds are available to any unsatisfied customer, but initiating a refund will result in reversal or 
+                removal of the purchased digital goods. Refund decisions are made at the sole discretion of FearMC 
+                management. Chargebacks without prior communication may result in a permanent ban.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">3. Server Rules and Conduct</h2>
+              <h2 className="text-xl font-bold mb-4">4. Limited License</h2>
               <p className="mb-3">
-                When playing on the FearMC Minecraft server, you agree to:
+                You are granted a limited, non-exclusive, non-transferable license to access and use FearMC 
+                materials for personal, non-commercial purposes. Under this license, you may not:
               </p>
               <ul className="list-disc pl-5 mb-4">
-                <li>Follow all server-specific rules as posted on our website and in-game</li>
-                <li>Not engage in cheating, hacking, or exploiting game mechanics</li>
-                <li>Treat all players and staff with respect</li>
-                <li>Not engage in any behavior that disrupts the gameplay experience of others</li>
-                <li>Not advertise other servers or services</li>
+                <li>Modify or copy the materials.</li>
+                <li>Use them for commercial gain or public display.</li>
+                <li>Attempt to decompile or reverse engineer any FearMC software.</li>
+                <li>Remove copyright or proprietary notations.</li>
+                <li>Mirror or redistribute the materials on other servers.</li>
               </ul>
               <p>
-                Violation of these rules may result in temporary or permanent ban from our services.
+                This license is automatically terminated if you violate any of these restrictions.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">4. Purchases and Refunds</h2>
+              <h2 className="text-xl font-bold mb-4">5. Server Behavior and Community Conduct</h2>
+              <p className="mb-3">Users agree to:</p>
+              <ul className="list-disc pl-5 mb-4">
+                <li>Follow all posted and in-game rules.</li>
+                <li>Not cheat, hack, exploit, or abuse mechanics.</li>
+                <li>Respect other players and staff members.</li>
+                <li>Avoid behavior that disrupts gameplay or the community.</li>
+                <li>Not advertise external servers, products, or services.</li>
+              </ul>
               <p>
-                All purchases made through our store are final. We do not offer refunds except in exceptional 
-                circumstances at the sole discretion of FearMC management. By making a purchase, you 
-                acknowledge that you have read and agree to our refund policy.
+                Violations may result in a warning, suspension, or permanent ban without prior notice.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">5. Account Security</h2>
+              <h2 className="text-xl font-bold mb-4">6. Account Responsibility</h2>
               <p>
-                You are responsible for maintaining the confidentiality of your account and password and for 
-                restricting access to your computer. You agree to accept responsibility for all activities that 
-                occur under your account or password.
+                You are solely responsible for your account. Do not share your login credentials. FearMC is not liable
+                for losses or damages arising from unauthorized use of your account.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">6. Disclaimer</h2>
+              <h2 className="text-xl font-bold mb-4">7. Disclaimers</h2>
               <p>
-                The materials on FearMC's website and server are provided "as is". FearMC makes no warranties, 
-                expressed or implied, and hereby disclaims and negates all other warranties, including without 
-                limitation, implied warranties or conditions of merchantability, fitness for a particular purpose, 
-                or non-infringement of intellectual property or other violation of rights.
+                FearMC services are provided "as is." We make no warranties, express or implied, including but not 
+                limited to merchantability, fitness for a particular purpose, or non-infringement.
               </p>
             </section>
-            
+
             <section className="mb-6">
-              <h2 className="text-xl font-bold mb-4">7. Limitations</h2>
+              <h2 className="text-xl font-bold mb-4">8. Limitation of Liability</h2>
               <p>
-                In no event shall FearMC or its suppliers be liable for any damages arising out of the use or 
-                inability to use the materials on FearMC's website or server, even if FearMC or an authorized 
-                representative has been notified orally or in writing of the possibility of such damage.
+                In no event shall FearMC, its owners, or affiliates be liable for any damages arising out of the 
+                inability to use our services, including but not limited to data loss, account issues, or 
+                service interruptions.
               </p>
             </section>
-            
+
+            <section className="mb-6">
+              <h2 className="text-xl font-bold mb-4">9. Changes to Terms</h2>
+              <p>
+                FearMC reserves the right to update or change these Terms at any time. It is your responsibility 
+                to review this page periodically. Continued use of our services after changes indicates 
+                acceptance of the new Terms.
+              </p>
+            </section>
+
             <section>
-              <h2 className="text-xl font-bold mb-4">8. Contact Information</h2>
+              <h2 className="text-xl font-bold mb-4">10. Contact Us</h2>
               <p>
-                If you have any questions about these Terms of Service, please contact us at terms@fearmc.net.
+                For questions or concerns about these Terms, contact us at <a href="mailto:terms@fearmc.net">terms@fearmc.net</a>.
               </p>
             </section>
           </div>
