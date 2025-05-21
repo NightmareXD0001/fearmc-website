@@ -18,7 +18,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://api.fearmc.net/api/contact-send', {
+      const response = await fetch('https://fearmc-api.vercel.app/api/contact-send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
