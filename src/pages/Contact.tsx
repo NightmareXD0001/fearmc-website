@@ -4,7 +4,8 @@ import PageLayout from '@/components/layout/PageLayout';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
-    name: '',
+    discordUsername: '',
+    discordId: '',
     email: '',
     message: ''
   });
@@ -18,7 +19,7 @@ const Contact = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch('https://fearmc-api.vercel.app/api/contact-send', {
+      const response = await fetch('https://api.fearmc.net/api/contact-send', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -35,7 +36,8 @@ const Contact = () => {
       toast.success("Message sent successfully! We'll be in touch soon.");
 
       setFormData({
-        name: '',
+        discordUsername: '',
+        discordId: '',
         email: '',
         message: ''
       });
@@ -63,16 +65,38 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                  <label htmlFor="name" className="block text-gray-300 mb-2">Name</label>
+                  <label htmlFor="discordUsername" className="block text-gray-300 mb-2">
+                    Discord Username
+                  </label>
                   <input
                     type="text"
-                    id="name"
-                    name="name"
-                    value={formData.name}
+                    id="discordUsername"
+                    name="discordUsername"
+                    value={formData.discordUsername}
                     onChange={handleChange}
                     required
+                    placeholder="e.g. FearUser"
                     className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
                   />
+                </div>
+
+                <div className="mb-4">
+                  <label htmlFor="discordId" className="block text-gray-300 mb-2">
+                    Discord ID
+                  </label>
+                  <input
+                    type="text"
+                    id="discordId"
+                    name="discordId"
+                    value={formData.discordId}
+                    onChange={handleChange}
+                    required
+                    placeholder="e.g. 123456789012345678"
+                    className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
+                  />
+                  <p className="text-sm text-gray-400 mt-1">
+                    Use <code className="bg-black/30 px-1 rounded">/getid</code> in our Discord to get your ID.
+                  </p>
                 </div>
 
                 <div className="mb-4">
