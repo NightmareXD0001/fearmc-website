@@ -84,14 +84,16 @@ const Contact = () => {
                     Discord ID
                   </label>
                   <input
-                    type="text"
-                    id="discordId"
-                    name="discordId"
-                    value={formData.discordId}
-                    onChange={handleChange}
-                    required
-                    className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
-                  />
+  type="text"
+  id="discordId"
+  name="discordId"
+  value={formData.discordId}
+  onChange={handleChange}
+  required
+  pattern="^[0-9]+$"
+  title="Discord ID must be numeric"
+  className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
+/>
                   <p className="text-sm text-gray-400 mt-1">
                     Use <code className="bg-black/30 px-1 rounded">/getid</code> in our Discord to get your ID.
                   </p>
