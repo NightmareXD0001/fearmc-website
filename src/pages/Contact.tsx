@@ -75,7 +75,6 @@ const Contact = () => {
                     value={formData.discordUsername}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. FearUser"
                     className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
                   />
                 </div>
@@ -91,7 +90,6 @@ const Contact = () => {
                     value={formData.discordId}
                     onChange={handleChange}
                     required
-                    placeholder="e.g. 123456789012345678"
                     className="w-full bg-fear-darkgray/50 border border-white/10 rounded-lg py-2 px-3 text-white focus:outline-none focus:ring-2 focus:ring-fear-red/50 glow-hover"
                   />
                   <p className="text-sm text-gray-400 mt-1">
